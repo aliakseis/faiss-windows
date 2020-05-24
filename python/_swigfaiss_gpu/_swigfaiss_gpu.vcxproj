@@ -173,6 +173,11 @@
     <ClCompile Include="..\swigfaiss_gpu_wrap.cpp" />
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\windows-faiss.vcxproj">
+      <Project>{95303da8-e1c9-475c-ae7f-aed7bc4981b7}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
