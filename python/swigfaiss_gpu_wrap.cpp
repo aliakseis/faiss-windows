@@ -4153,7 +4153,9 @@ int * cast_integer_to_int_ptr (long x) {
 
 #include <signal.h>
 void ignore_SIGTTIN() {
+#ifndef _WIN32
     signal(SIGTTIN, SIG_IGN);
+#endif
 }
 
 

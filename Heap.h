@@ -271,14 +271,14 @@ template <typename T> inline
 void minheap_addn (size_t k, T * bh_val, long * bh_ids,
                    const T * x, const long * ids, size_t n)
 {
-    heap_addn<CMin<T, long> > (k, bh_val, bh_ids, x, ids, n);
+    heap_addn<CMin<T, int64_t> > (k, bh_val, bh_ids, x, ids, n);
 }
 
 template <typename T> inline
 void maxheap_addn (size_t k, T * bh_val, long * bh_ids,
                    const T * x, const long * ids, size_t n)
 {
-    heap_addn<CMax<T, long> > (k, bh_val, bh_ids, x, ids, n);
+    heap_addn<CMax<T, int64_t> > (k, bh_val, bh_ids, x, ids, n);
 }
 
 

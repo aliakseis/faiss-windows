@@ -9,16 +9,51 @@
 
 #include "OnDiskInvertedLists.h"
 
-#include <pthread.h>
+//#include <pthread.h>
+
+#include <algorithm>
 
 #include <unordered_set>
 
+//#include <unistd.h>
+
+#ifdef _WIN32
+#include "windows-mmap.h"
+#else
 #include <sys/mman.h>
-#include <unistd.h>
+#endif
+
+#include <mutex>
+#include <thread>
+
 #include <sys/types.h>
 
 #include "FaissAssert.h"
 
+#ifdef _WIN32
+
+#include <windows.h>
+
+#undef min
+#undef max
+
+// Helper function taking a file name instead of a HANDLE
+static bool truncate(const char* PathName, size_t NewSize) {
+    HANDLE hFile = CreateFileA(PathName, GENERIC_WRITE, FILE_SHARE_READ,
+        NULL, OPEN_EXISTING,
+        FILE_ATTRIBUTE_NORMAL, NULL);
+    if (hFile == INVALID_HANDLE_VALUE) {
+        return false;
+    }
+    LARGE_INTEGER Size;
+    Size.QuadPart = NewSize;
+    bool Success = (SetFilePointerEx(hFile, Size, NULL, FILE_BEGIN) &&
+        SetEndOfFile(hFile));
+    CloseHandle(hFile);
+    return Success;
+}
+
+#endif
 
 namespace faiss {
 
@@ -36,10 +71,10 @@ struct LockLevels {
      *    a single thread can hold lock3, if it holds lock1(n) for some n
      *       AND lock2 AND no other thread holds lock1(m) for m != n
      */
-    pthread_mutex_t mutex1;
-    pthread_cond_t level1_cv;
-    pthread_cond_t level2_cv;
-    pthread_cond_t level3_cv;
+    std::mutex mutex1;
+    std::condition_variable level1_cv;
+    std::condition_variable level2_cv;
+    std::condition_variable level3_cv;
 
     std::unordered_set<int> level1_holders; // which level1 locks are held
     int n_level2; // nb threads that wait on level2
@@ -47,90 +82,93 @@ struct LockLevels {
     bool level2_in_use;
 
     LockLevels() {
-        pthread_mutex_init(&mutex1, nullptr);
-        pthread_cond_init(&level1_cv, nullptr);
-        pthread_cond_init(&level2_cv, nullptr);
-        pthread_cond_init(&level3_cv, nullptr);
+        //pthread_mutex_init(&mutex1, nullptr);
+        //pthread_cond_init(&level1_cv, nullptr);
+        //pthread_cond_init(&level2_cv, nullptr);
+        //pthread_cond_init(&level3_cv, nullptr);
         n_level2 = 0;
         level2_in_use = false;
         level3_in_use = false;
     }
 
     ~LockLevels() {
-        pthread_cond_destroy(&level1_cv);
-        pthread_cond_destroy(&level2_cv);
-        pthread_cond_destroy(&level3_cv);
-        pthread_mutex_destroy(&mutex1);
+        //pthread_cond_destroy(&level1_cv);
+        //pthread_cond_destroy(&level2_cv);
+        //pthread_cond_destroy(&level3_cv);
+        //pthread_mutex_destroy(&mutex1);
     }
 
     void lock_1(int no) {
-        pthread_mutex_lock(&mutex1);
+        std::unique_lock<std::mutex> locker(mutex1);
         while (level3_in_use || level1_holders.count(no) > 0) {
-            pthread_cond_wait(&level1_cv, &mutex1);
+            level1_cv.wait(locker);
         }
         level1_holders.insert(no);
-        pthread_mutex_unlock(&mutex1);
+        //pthread_mutex_unlock(&mutex1);
     }
 
     void unlock_1(int no) {
-        pthread_mutex_lock(&mutex1);
+        std::lock_guard<std::mutex> locker(mutex1);
         assert(level1_holders.count(no) == 1);
         level1_holders.erase(no);
         if (level3_in_use) { // a writer is waiting
-            pthread_cond_signal(&level3_cv);
+            level3_cv.notify_one();
         } else {
-            pthread_cond_broadcast(&level1_cv);
+            level1_cv.notify_all();
         }
-        pthread_mutex_unlock(&mutex1);
+        //pthread_mutex_unlock(&mutex1);
     }
 
     void lock_2() {
-        pthread_mutex_lock(&mutex1);
+        std::unique_lock<std::mutex> locker(mutex1);
         n_level2 ++;
         if (level3_in_use) { // tell waiting level3 that we are blocked
-            pthread_cond_signal(&level3_cv);
+            level3_cv.notify_one();
         }
         while (level2_in_use) {
-            pthread_cond_wait(&level2_cv, &mutex1);
+            level2_cv.wait(locker);
         }
         level2_in_use = true;
-        pthread_mutex_unlock(&mutex1);
+        //pthread_mutex_unlock(&mutex1);
     }
 
     void unlock_2() {
-        pthread_mutex_lock(&mutex1);
+        std::lock_guard<std::mutex> locker(mutex1);
         level2_in_use = false;
         n_level2 --;
-        pthread_cond_signal(&level2_cv);
-        pthread_mutex_unlock(&mutex1);
+        level2_cv.notify_one();
+        //pthread_mutex_unlock(&mutex1);
     }
 
     void lock_3() {
-        pthread_mutex_lock(&mutex1);
+        //pthread_mutex_lock(&mutex1);
+        std::unique_lock<std::mutex> locker(mutex1);
         level3_in_use = true;
         // wait until there are no level1 holders anymore except the
         // ones that are waiting on level2 (we are holding lock2)
         while (level1_holders.size() > n_level2) {
-            pthread_cond_wait(&level3_cv, &mutex1);
+            level3_cv.wait(locker);
         }
         // don't release the lock!
+        locker.release();
     }
 
     void unlock_3() {
         level3_in_use = false;
         // wake up all level1_holders
-        pthread_cond_broadcast(&level1_cv);
-        pthread_mutex_unlock(&mutex1);
+        level1_cv.notify_all();
+        //pthread_mutex_unlock(&mutex1);
+        mutex1.unlock();
     }
 
     void print () {
-        pthread_mutex_lock(&mutex1);
+        std::unique_lock<std::mutex> locker(mutex1);
         printf("State: level3_in_use=%d n_level2=%d level1_holders: [", level3_in_use, n_level2);
         for (int k : level1_holders) {
             printf("%d ", k);
         }
         printf("]\n");
-        pthread_mutex_unlock(&mutex1);
+        //pthread_mutex_unlock(&mutex1);
     }
 
 };
@@ -142,14 +180,14 @@ struct LockLevels {
 struct OnDiskInvertedLists::OngoingPrefetch {
 
     struct Thread {
-        pthread_t pth;
+        std::thread pth;
         const OnDiskInvertedLists *od;
         int64_t list_no;
     };
 
     std::vector<Thread> threads;
 
-    pthread_mutex_t mutex;
+    std::mutex mutex;
 
     // pretext to avoid code below to be optimized out
     static int global_cs;
@@ -158,11 +196,11 @@ struct OnDiskInvertedLists::OngoingPrefetch {
 
     OngoingPrefetch (const OnDiskInvertedLists *od): od (od)
     {
-        pthread_mutex_init (&mutex, nullptr);
+        //pthread_mutex_init (&mutex, nullptr);
     }
 
-    static void* prefetch_list (void * arg) {
-        Thread *th = static_cast<Thread*>(arg);
+    static void* prefetch_list (Thread *th) {
+        //Thread *th = static_cast<Thread*>(arg);
 
         th->od->locks->lock_1(th->list_no);
         size_t n = th->od->list_size(th->list_no);
@@ -183,11 +221,12 @@ struct OnDiskInvertedLists::OngoingPrefetch {
         return nullptr;
     }
 
-    void prefetch_lists (const long *list_nos, int n) {
-        pthread_mutex_lock (&mutex);
+    void prefetch_lists (const int64_t *list_nos, int n) {
+        std::unique_lock<std::mutex> locker(mutex);
         for (auto &th: threads) {
             if (th.list_no != -1) {
-                pthread_join (th.pth, nullptr);
+                //pthread_join (th.pth, nullptr);
+                th.pth.join();
             }
         }
         threads.resize (n);
@@ -197,23 +236,25 @@ struct OnDiskInvertedLists::OngoingPrefetch {
             if (list_no >= 0 && od->list_size(list_no) > 0) {
                 th.list_no = list_no;
                 th.od = od;
-                pthread_create (&th.pth, nullptr, prefetch_list, &th);
+                //pthread_create (&th.pth, nullptr, prefetch_list, &th);
+                th.pth = std::thread(prefetch_list, &th);
             } else {
                 th.list_no = -1;
             }
         }
-        pthread_mutex_unlock (&mutex);
+        //pthread_mutex_unlock (&mutex);
     }
 
     ~OngoingPrefetch () {
-        pthread_mutex_lock (&mutex);
+        std::unique_lock<std::mutex> locker(mutex);
         for (auto &th: threads) {
             if (th.list_no != -1) {
-                pthread_join (th.pth, nullptr);
+                //pthread_join (th.pth, nullptr);
+                th.pth.join();
             }
         }
-        pthread_mutex_unlock (&mutex);
-        pthread_mutex_destroy (&mutex);
+        //pthread_mutex_unlock (&mutex);
+        //pthread_mutex_destroy (&mutex);
     }
 
 };
@@ -221,7 +262,7 @@ struct OnDiskInvertedLists::OngoingPrefetch {
 int OnDiskInvertedLists::OngoingPrefetch::global_cs = 0;
 
 
-void OnDiskInvertedLists::prefetch_lists (const long *list_nos, int n) const
+void OnDiskInvertedLists::prefetch_lists (const int64_t *list_nos, int n) const
 {
     pf->prefetch_lists (list_nos, n);
 }
@@ -507,7 +548,7 @@ void OnDiskInvertedLists::free_slot (size_t offset, size_t capacity) {
         it++;
     }
 
-    size_t inf = 1UL << 60;
+    size_t inf = 1ULL << 60;
 
     size_t end_prev = inf;
     if (it != slots.begin()) {
@@ -516,7 +557,7 @@ void OnDiskInvertedLists::free_slot (size_t offset, size_t capacity) {
         end_prev = prev->offset + prev->capacity;
     }
 
-    size_t begin_next = 1L << 60;
+    size_t begin_next = 1LL << 60;
     if (it != slots.end()) {
         begin_next = it->offset;
     }

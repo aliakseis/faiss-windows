@@ -384,7 +384,7 @@ void ParameterSpace::initialize (const Index * index)
             for (int i = 8; i < 20; i++) {
                 pr_max_codes.values.push_back (1 << i);
             }
-            pr_max_codes.values.push_back (1.0 / 0.0);
+            pr_max_codes.values.push_back (std::numeric_limits<double>::infinity());
         }
     }
     if (DC (IndexIVFPQR)) {
@@ -424,13 +424,14 @@ void ParameterSpace::set_index_parameters (Index *index, size_t cno) const
 void ParameterSpace::set_index_parameters (
      Index *index, const char *description_in) const
 {
-    char description[strlen(description_in) + 1];
-    char *ptr;
-    memcpy (description, description_in, strlen(description_in) + 1);
+    //char description[strlen(description_in) + 1];
+    std::string description(description_in);
+    //char *ptr;
+    //memcpy (description, description_in, strlen(description_in) + 1);
 
-    for (char *tok = strtok_r (description, " ,", &ptr);
+    for (char *tok = strtok (&description[0], " ,");
          tok;
-         tok = strtok_r (nullptr, " ,", &ptr)) {
+         tok = strtok (nullptr, " ,")) {
         char name[100];
         double val;
         int ret = sscanf (tok, "%100[^=]=%lf", name, &val);
@@ -511,7 +512,7 @@ void ParameterSpace::set_index_parameter (
     }
     if (name == "max_codes") {
         if (DC (IndexIVF)) {
-            ix->max_codes = finite(val) ? size_t(val) : 0;
+            ix->max_codes = std::isfinite(val) ? size_t(val) : 0;
             return;
         }
     }
@@ -695,15 +696,16 @@ Index *index_factory (int d, const char *description_in, MetricType metric)
 
     ScopeDeleter1<Index> del_coarse_quantizer, del_index;
 
-    char description[strlen(description_in) + 1];
-    char *ptr;
-    memcpy (description, description_in, strlen(description_in) + 1);
+    //char description[strlen(description_in) + 1];
+    std::string description(description_in);
+    //char *ptr;
+    //memcpy (description, description_in, strlen(description_in) + 1);
 
     int ncentroids = -1;
 
-    for (char *tok = strtok_r (description, " ,", &ptr);
+    for (char *tok = strtok (&description[0], " ,");
          tok;
-         tok = strtok_r (nullptr, " ,", &ptr)) {
+         tok = strtok (nullptr, " ,")) {
         int d_out, opq_M, nbit, M, M2, pq_m, ncent;
         std::string stok(tok);
 

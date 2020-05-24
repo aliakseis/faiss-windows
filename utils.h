@@ -59,7 +59,7 @@ struct RandomGenerator {
 //    unsigned rand_state;
 //#endif
 	std::mt19937_64 rng;
-	std::seed_seq ss;
+	//std::seed_seq ss;
 	std::uniform_int_distribution<__int64> uni_long;
 	__int64 max_long;
 	int max_int;
@@ -82,7 +82,7 @@ struct RandomGenerator {
     explicit RandomGenerator (long seed = 1234);
 
     /// default copy constructor messes up pointer in rand_data
-    RandomGenerator (const RandomGenerator & other);
+    //RandomGenerator (const RandomGenerator & other);
 
 };
 
@@ -349,8 +349,8 @@ void ranklist_handle_ties (int k, long *idx, const float *dis);
 /** count the number of comon elements between v1 and v2
  * algorithm = sorting + bissection to avoid double-counting duplicates
  */
-size_t ranklist_intersection_size (size_t k1, const long *v1,
-                                   size_t k2, const long *v2);
+size_t ranklist_intersection_size (size_t k1, const int64_t *v1,
+                                   size_t k2, const int64_t *v2);
 
 /** merge a result table into another one
  *

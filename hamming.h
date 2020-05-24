@@ -128,7 +128,7 @@ size_t match_hamming_thres (
         size_t n2,
         hamdis_t ht,
         size_t ncodes,
-        long * idx,
+        int64_t * idx,
         hamdis_t * dis);
 
 /* Cross-matching in a set of vectors */

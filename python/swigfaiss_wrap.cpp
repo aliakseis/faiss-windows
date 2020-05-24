@@ -4103,7 +4103,9 @@ int * cast_integer_to_int_ptr (long x) {
 
 #include <signal.h>
 void ignore_SIGTTIN() {
+#ifndef _WIN32
     signal(SIGTTIN, SIG_IGN);
+#endif
 }
 
 
@@ -7027,7 +7029,7 @@ SWIGINTERN PyObject *_wrap_match_hamming_thres(PyObject *SWIGUNUSEDPARM(self), P
   size_t arg4 ;
   hamdis_t arg5 ;
   size_t arg6 ;
-  long *arg7 = (long *) 0 ;
+  int64_t *arg7 = 0 ;
   hamdis_t *arg8 = (hamdis_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -7090,7 +7092,7 @@ SWIGINTERN PyObject *_wrap_match_hamming_thres(PyObject *SWIGUNUSEDPARM(self), P
   if (!SWIG_IsOK(res7)) {
     SWIG_exception_fail(SWIG_ArgError(res7), "in method '" "match_hamming_thres" "', argument " "7"" of type '" "long *""'"); 
   }
-  arg7 = reinterpret_cast< long * >(argp7);
+  arg7 = reinterpret_cast< int64_t * >(argp7);
   res8 = SWIG_ConvertPtr(obj7, &argp8,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res8)) {
     SWIG_exception_fail(SWIG_ArgError(res8), "in method '" "match_hamming_thres" "', argument " "8"" of type '" "hamdis_t *""'"); 
@@ -11206,7 +11208,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_long_rand(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  long *arg1 = (long *) 0 ;
+  long *arg1 = 0 ;
   size_t arg2 ;
   long arg3 ;
   void *argp1 = 0 ;
@@ -11455,7 +11457,7 @@ SWIGINTERN PyObject *_wrap_imbalance_factor__SWIG_0(PyObject *SWIGUNUSEDPARM(sel
   PyObject *resultobj = 0;
   int arg1 ;
   int arg2 ;
-  long *arg3 = (long *) 0 ;
+  int64_t *arg3 = 0 ;
   int val1 ;
   int ecode1 = 0 ;
   int val2 ;
@@ -11482,7 +11484,7 @@ SWIGINTERN PyObject *_wrap_imbalance_factor__SWIG_0(PyObject *SWIGUNUSEDPARM(sel
   if (!SWIG_IsOK(res3)) {
     SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "imbalance_factor" "', argument " "3"" of type '" "long const *""'"); 
   }
-  arg3 = reinterpret_cast< long * >(argp3);
+  arg3 = reinterpret_cast< int64_t * >(argp3);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
@@ -12578,7 +12580,7 @@ SWIGINTERN PyObject *_wrap_fvec_inner_products_by_idx(PyObject *SWIGUNUSEDPARM(s
   float *arg1 = (float *) 0 ;
   float *arg2 = (float *) 0 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   size_t arg5 ;
   size_t arg6 ;
   size_t arg7 ;
@@ -12624,7 +12626,7 @@ SWIGINTERN PyObject *_wrap_fvec_inner_products_by_idx(PyObject *SWIGUNUSEDPARM(s
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "fvec_inner_products_by_idx" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   ecode5 = SWIG_AsVal_size_t(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "fvec_inner_products_by_idx" "', argument " "5"" of type '" "size_t""'");
@@ -12643,7 +12645,7 @@ SWIGINTERN PyObject *_wrap_fvec_inner_products_by_idx(PyObject *SWIGUNUSEDPARM(s
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      faiss::fvec_inner_products_by_idx(arg1,(float const *)arg2,(float const *)arg3,(long const *)arg4,arg5,arg6,arg7);
+      faiss::fvec_inner_products_by_idx(arg1,(float const *)arg2,(float const *)arg3,(int64_t const *)arg4,arg5,arg6,arg7);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -12663,7 +12665,7 @@ SWIGINTERN PyObject *_wrap_fvec_L2sqr_by_idx(PyObject *SWIGUNUSEDPARM(self), PyO
   float *arg1 = (float *) 0 ;
   float *arg2 = (float *) 0 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   size_t arg5 ;
   size_t arg6 ;
   size_t arg7 ;
@@ -12709,7 +12711,7 @@ SWIGINTERN PyObject *_wrap_fvec_L2sqr_by_idx(PyObject *SWIGUNUSEDPARM(self), PyO
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "fvec_L2sqr_by_idx" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   ecode5 = SWIG_AsVal_size_t(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "fvec_L2sqr_by_idx" "', argument " "5"" of type '" "size_t""'");
@@ -12728,7 +12730,7 @@ SWIGINTERN PyObject *_wrap_fvec_L2sqr_by_idx(PyObject *SWIGUNUSEDPARM(self), PyO
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      faiss::fvec_L2sqr_by_idx(arg1,(float const *)arg2,(float const *)arg3,(long const *)arg4,arg5,arg6,arg7);
+      faiss::fvec_L2sqr_by_idx(arg1,(float const *)arg2,(float const *)arg3,(int64_t const *)arg4,arg5,arg6,arg7);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -13007,7 +13009,7 @@ SWIGINTERN PyObject *_wrap_knn_inner_products_by_idx(PyObject *SWIGUNUSEDPARM(se
   PyObject *resultobj = 0;
   float *arg1 = (float *) 0 ;
   float *arg2 = (float *) 0 ;
-  long *arg3 = (long *) 0 ;
+  int64_t *arg3 = 0 ;
   size_t arg4 ;
   size_t arg5 ;
   size_t arg6 ;
@@ -13049,7 +13051,7 @@ SWIGINTERN PyObject *_wrap_knn_inner_products_by_idx(PyObject *SWIGUNUSEDPARM(se
   if (!SWIG_IsOK(res3)) {
     SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "knn_inner_products_by_idx" "', argument " "3"" of type '" "long const *""'"); 
   }
-  arg3 = reinterpret_cast< long * >(argp3);
+  arg3 = reinterpret_cast< int64_t * >(argp3);
   ecode4 = SWIG_AsVal_size_t(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "knn_inner_products_by_idx" "', argument " "4"" of type '" "size_t""'");
@@ -13092,7 +13094,7 @@ SWIGINTERN PyObject *_wrap_knn_L2sqr_by_idx(PyObject *SWIGUNUSEDPARM(self), PyOb
   PyObject *resultobj = 0;
   float *arg1 = (float *) 0 ;
   float *arg2 = (float *) 0 ;
-  long *arg3 = (long *) 0 ;
+  int64_t *arg3 = 0 ;
   size_t arg4 ;
   size_t arg5 ;
   size_t arg6 ;
@@ -13134,7 +13136,7 @@ SWIGINTERN PyObject *_wrap_knn_L2sqr_by_idx(PyObject *SWIGUNUSEDPARM(self), PyOb
   if (!SWIG_IsOK(res3)) {
     SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "knn_L2sqr_by_idx" "', argument " "3"" of type '" "long const *""'"); 
   }
-  arg3 = reinterpret_cast< long * >(argp3);
+  arg3 = reinterpret_cast< int64_t * >(argp3);
   ecode4 = SWIG_AsVal_size_t(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "knn_L2sqr_by_idx" "', argument " "4"" of type '" "size_t""'");
@@ -13549,7 +13551,7 @@ SWIGINTERN PyObject *_wrap_km_update_centroids(PyObject *SWIGUNUSEDPARM(self), P
   PyObject *resultobj = 0;
   float *arg1 = (float *) 0 ;
   float *arg2 = (float *) 0 ;
-  long *arg3 = (long *) 0 ;
+  int64_t *arg3 = 0 ;
   size_t arg4 ;
   size_t arg5 ;
   size_t arg6 ;
@@ -13592,7 +13594,7 @@ SWIGINTERN PyObject *_wrap_km_update_centroids(PyObject *SWIGUNUSEDPARM(self), P
   if (!SWIG_IsOK(res3)) {
     SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "km_update_centroids" "', argument " "3"" of type '" "long *""'"); 
   }
-  arg3 = reinterpret_cast< long * >(argp3);
+  arg3 = reinterpret_cast< int64_t * >(argp3);
   ecode4 = SWIG_AsVal_size_t(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "km_update_centroids" "', argument " "4"" of type '" "size_t""'");
@@ -13683,7 +13685,7 @@ fail:
 SWIGINTERN PyObject *_wrap_ranklist_handle_ties(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   int arg1 ;
-  long *arg2 = (long *) 0 ;
+  long *arg2 = 0 ;
   float *arg3 = (float *) 0 ;
   int val1 ;
   int ecode1 = 0 ;
@@ -13732,9 +13734,9 @@ fail:
 SWIGINTERN PyObject *_wrap_ranklist_intersection_size(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   size_t arg1 ;
-  long *arg2 = (long *) 0 ;
+  int64_t *arg2 = 0 ;
   size_t arg3 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   size_t val1 ;
   int ecode1 = 0 ;
   void *argp2 = 0 ;
@@ -13759,7 +13761,7 @@ SWIGINTERN PyObject *_wrap_ranklist_intersection_size(PyObject *SWIGUNUSEDPARM(s
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ranklist_intersection_size" "', argument " "2"" of type '" "long const *""'"); 
   }
-  arg2 = reinterpret_cast< long * >(argp2);
+  arg2 = reinterpret_cast< int64_t * >(argp2);
   ecode3 = SWIG_AsVal_size_t(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "ranklist_intersection_size" "', argument " "3"" of type '" "size_t""'");
@@ -13769,11 +13771,11 @@ SWIGINTERN PyObject *_wrap_ranklist_intersection_size(PyObject *SWIGUNUSEDPARM(s
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "ranklist_intersection_size" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      result = (size_t)faiss::ranklist_intersection_size(arg1,(long const *)arg2,arg3,(long const *)arg4);
+      result = (size_t)faiss::ranklist_intersection_size(arg1,arg2,arg3,arg4);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -13792,9 +13794,9 @@ SWIGINTERN PyObject *_wrap_merge_result_table_with__SWIG_0(PyObject *SWIGUNUSEDP
   PyObject *resultobj = 0;
   size_t arg1 ;
   size_t arg2 ;
-  long *arg3 = (long *) 0 ;
+  long *arg3 = 0 ;
   float *arg4 = (float *) 0 ;
-  long *arg5 = (long *) 0 ;
+  int64_t *arg5 = 0 ;
   float *arg6 = (float *) 0 ;
   bool arg7 ;
   long arg8 ;
@@ -13849,7 +13851,7 @@ SWIGINTERN PyObject *_wrap_merge_result_table_with__SWIG_0(PyObject *SWIGUNUSEDP
   if (!SWIG_IsOK(res5)) {
     SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "merge_result_table_with" "', argument " "5"" of type '" "long const *""'"); 
   }
-  arg5 = reinterpret_cast< long * >(argp5);
+  arg5 = reinterpret_cast< int64_t * >(argp5);
   res6 = SWIG_ConvertPtr(obj5, &argp6,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res6)) {
     SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "merge_result_table_with" "', argument " "6"" of type '" "float const *""'"); 
@@ -13887,9 +13889,9 @@ SWIGINTERN PyObject *_wrap_merge_result_table_with__SWIG_1(PyObject *SWIGUNUSEDP
   PyObject *resultobj = 0;
   size_t arg1 ;
   size_t arg2 ;
-  long *arg3 = (long *) 0 ;
+  long *arg3 = 0 ;
   float *arg4 = (float *) 0 ;
-  long *arg5 = (long *) 0 ;
+  int64_t *arg5 = 0 ;
   float *arg6 = (float *) 0 ;
   bool arg7 ;
   size_t val1 ;
@@ -13940,7 +13942,7 @@ SWIGINTERN PyObject *_wrap_merge_result_table_with__SWIG_1(PyObject *SWIGUNUSEDP
   if (!SWIG_IsOK(res5)) {
     SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "merge_result_table_with" "', argument " "5"" of type '" "long const *""'"); 
   }
-  arg5 = reinterpret_cast< long * >(argp5);
+  arg5 = reinterpret_cast< int64_t * >(argp5);
   res6 = SWIG_ConvertPtr(obj5, &argp6,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res6)) {
     SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "merge_result_table_with" "', argument " "6"" of type '" "float const *""'"); 
@@ -13973,9 +13975,9 @@ SWIGINTERN PyObject *_wrap_merge_result_table_with__SWIG_2(PyObject *SWIGUNUSEDP
   PyObject *resultobj = 0;
   size_t arg1 ;
   size_t arg2 ;
-  long *arg3 = (long *) 0 ;
+  long *arg3 = 0 ;
   float *arg4 = (float *) 0 ;
-  long *arg5 = (long *) 0 ;
+  int64_t *arg5 = 0 ;
   float *arg6 = (float *) 0 ;
   size_t val1 ;
   int ecode1 = 0 ;
@@ -14022,7 +14024,7 @@ SWIGINTERN PyObject *_wrap_merge_result_table_with__SWIG_2(PyObject *SWIGUNUSEDP
   if (!SWIG_IsOK(res5)) {
     SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "merge_result_table_with" "', argument " "5"" of type '" "long const *""'"); 
   }
-  arg5 = reinterpret_cast< long * >(argp5);
+  arg5 = reinterpret_cast< int64_t * >(argp5);
   res6 = SWIG_ConvertPtr(obj5, &argp6,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res6)) {
     SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "merge_result_table_with" "', argument " "6"" of type '" "float const *""'"); 
@@ -15168,7 +15170,7 @@ SWIGINTERN PyObject *_wrap_Index_add_with_ids(PyObject *SWIGUNUSEDPARM(self), Py
   faiss::Index *arg1 = (faiss::Index *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -15202,11 +15204,11 @@ SWIGINTERN PyObject *_wrap_Index_add_with_ids(PyObject *SWIGUNUSEDPARM(self), Py
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Index_add_with_ids" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_with_ids(arg2,(float const *)arg3,(long const *)arg4);
+      (arg1)->add_with_ids(arg2,arg3,arg4);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -23362,7 +23364,7 @@ SWIGINTERN PyObject *_wrap_IndexPreTransform_add_with_ids(PyObject *SWIGUNUSEDPA
   faiss::IndexPreTransform *arg1 = (faiss::IndexPreTransform *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -23396,11 +23398,11 @@ SWIGINTERN PyObject *_wrap_IndexPreTransform_add_with_ids(PyObject *SWIGUNUSEDPA
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexPreTransform_add_with_ids" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast<int64_t * >(argp4);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_with_ids(arg2,(float const *)arg3,(long const *)arg4);
+      (arg1)->add_with_ids(arg2,arg3,arg4);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -30027,7 +30029,7 @@ SWIGINTERN PyObject *_wrap_IndexPQ_hamming_distance_histogram(PyObject *SWIGUNUS
   float *arg3 = (float *) 0 ;
   faiss::Index::idx_t arg4 ;
   float *arg5 = (float *) 0 ;
-  long *arg6 = (long *) 0 ;
+  long *arg6 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -32205,7 +32207,7 @@ fail:
 SWIGINTERN PyObject *_wrap_InvertedLists_prefetch_lists(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   faiss::InvertedLists *arg1 = (faiss::InvertedLists *) 0 ;
-  long *arg2 = (long *) 0 ;
+  int64_t *arg2 = 0 ;
   int arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -32227,7 +32229,7 @@ SWIGINTERN PyObject *_wrap_InvertedLists_prefetch_lists(PyObject *SWIGUNUSEDPARM
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "InvertedLists_prefetch_lists" "', argument " "2"" of type '" "long const *""'"); 
   }
-  arg2 = reinterpret_cast< long * >(argp2);
+  arg2 = reinterpret_cast<int64_t * >(argp2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "InvertedLists_prefetch_lists" "', argument " "3"" of type '" "int""'");
@@ -32236,7 +32238,7 @@ SWIGINTERN PyObject *_wrap_InvertedLists_prefetch_lists(PyObject *SWIGUNUSEDPARM
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      ((faiss::InvertedLists const *)arg1)->prefetch_lists((long const *)arg2,arg3);
+      ((faiss::InvertedLists const *)arg1)->prefetch_lists(arg2,arg3);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -33453,7 +33455,7 @@ fail:
 SWIGINTERN PyObject *_wrap_IndexIVF_direct_map_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   faiss::IndexIVF *arg1 = (faiss::IndexIVF *) 0 ;
-  std::vector< long > *arg2 = (std::vector< long > *) 0 ;
+  std::vector< int64_t > *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -33471,7 +33473,7 @@ SWIGINTERN PyObject *_wrap_IndexIVF_direct_map_set(PyObject *SWIGUNUSEDPARM(self
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IndexIVF_direct_map_set" "', argument " "2"" of type '" "std::vector< long > *""'"); 
   }
-  arg2 = reinterpret_cast< std::vector< long > * >(argp2);
+  arg2 = reinterpret_cast< std::vector< int64_t > * >(argp2);
   if (arg1) (arg1)->direct_map = *arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -36692,7 +36694,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFScalarQuantizer_add_with_ids(PyObject *SWIGUN
   faiss::IndexIVFScalarQuantizer *arg1 = (faiss::IndexIVFScalarQuantizer *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -36726,11 +36728,11 @@ SWIGINTERN PyObject *_wrap_IndexIVFScalarQuantizer_add_with_ids(PyObject *SWIGUN
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFScalarQuantizer_add_with_ids" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast<int64_t * >(argp4);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_with_ids(arg2,(float const *)arg3,(long const *)arg4);
+      (arg1)->add_with_ids(arg2,arg3,arg4);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -42031,8 +42033,8 @@ SWIGINTERN PyObject *_wrap_IndexIVFFlat_add_core(PyObject *SWIGUNUSEDPARM(self),
   faiss::IndexIVFFlat *arg1 = (faiss::IndexIVFFlat *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
-  long *arg5 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
+  int64_t *arg5 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -42069,16 +42071,16 @@ SWIGINTERN PyObject *_wrap_IndexIVFFlat_add_core(PyObject *SWIGUNUSEDPARM(self),
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFFlat_add_core" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast<int64_t * >(argp4);
   res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res5)) {
     SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "IndexIVFFlat_add_core" "', argument " "5"" of type '" "long const *""'"); 
   }
-  arg5 = reinterpret_cast< long * >(argp5);
+  arg5 = reinterpret_cast<int64_t * >(argp5);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_core(arg2,(float const *)arg3,(long const *)arg4,(long const *)arg5);
+      (arg1)->add_core(arg2,arg3,arg4,arg5);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -42098,7 +42100,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFFlat_add_with_ids(PyObject *SWIGUNUSEDPARM(se
   faiss::IndexIVFFlat *arg1 = (faiss::IndexIVFFlat *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -42132,11 +42134,11 @@ SWIGINTERN PyObject *_wrap_IndexIVFFlat_add_with_ids(PyObject *SWIGUNUSEDPARM(se
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFFlat_add_with_ids" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast<int64_t * >(argp4);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_with_ids(arg2,(float const *)arg3,(long const *)arg4);
+      (arg1)->add_with_ids(arg2,arg3,arg4);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -43303,7 +43305,7 @@ fail:
 SWIGINTERN PyObject *_wrap_OnDiskInvertedLists_prefetch_lists(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   faiss::OnDiskInvertedLists *arg1 = (faiss::OnDiskInvertedLists *) 0 ;
-  long *arg2 = (long *) 0 ;
+  int64_t *arg2 = 0 ;
   int arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -43325,7 +43327,7 @@ SWIGINTERN PyObject *_wrap_OnDiskInvertedLists_prefetch_lists(PyObject *SWIGUNUS
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "OnDiskInvertedLists_prefetch_lists" "', argument " "2"" of type '" "long const *""'"); 
   }
-  arg2 = reinterpret_cast< long * >(argp2);
+  arg2 = reinterpret_cast<int64_t * >(argp2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "OnDiskInvertedLists_prefetch_lists" "', argument " "3"" of type '" "int""'");
@@ -43334,7 +43336,7 @@ SWIGINTERN PyObject *_wrap_OnDiskInvertedLists_prefetch_lists(PyObject *SWIGUNUS
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      ((faiss::OnDiskInvertedLists const *)arg1)->prefetch_lists((long const *)arg2,arg3);
+      ((faiss::OnDiskInvertedLists const *)arg1)->prefetch_lists(arg2,arg3);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -44258,7 +44260,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_add_with_ids__SWIG_0(PyObject *SWIGUNUSEDP
   faiss::IndexIVFPQ *arg1 = (faiss::IndexIVFPQ *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -44292,11 +44294,11 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_add_with_ids__SWIG_0(PyObject *SWIGUNUSEDP
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFPQ_add_with_ids" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast<int64_t * >(argp4);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_with_ids(arg2,(float const *)arg3,(long const *)arg4);
+      (arg1)->add_with_ids(arg2,arg3,arg4);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -44432,9 +44434,9 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_add_core_o__SWIG_0(PyObject *SWIGUNUSEDPAR
   faiss::IndexIVFPQ *arg1 = (faiss::IndexIVFPQ *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   float *arg5 = (float *) 0 ;
-  long *arg6 = (long *) 0 ;
+  int64_t *arg6 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -44474,7 +44476,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_add_core_o__SWIG_0(PyObject *SWIGUNUSEDPAR
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFPQ_add_core_o" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res5)) {
     SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "IndexIVFPQ_add_core_o" "', argument " "5"" of type '" "float *""'"); 
@@ -44484,11 +44486,11 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_add_core_o__SWIG_0(PyObject *SWIGUNUSEDPAR
   if (!SWIG_IsOK(res6)) {
     SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "IndexIVFPQ_add_core_o" "', argument " "6"" of type '" "long const *""'"); 
   }
-  arg6 = reinterpret_cast< long * >(argp6);
+  arg6 = reinterpret_cast< int64_t * >(argp6);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_core_o(arg2,(float const *)arg3,(long const *)arg4,arg5,(long const *)arg6);
+      (arg1)->add_core_o(arg2,(float const *)arg3,arg4,arg5,arg6);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -44508,7 +44510,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_add_core_o__SWIG_1(PyObject *SWIGUNUSEDPAR
   faiss::IndexIVFPQ *arg1 = (faiss::IndexIVFPQ *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   float *arg5 = (float *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -44546,7 +44548,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_add_core_o__SWIG_1(PyObject *SWIGUNUSEDPAR
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFPQ_add_core_o" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res5)) {
     SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "IndexIVFPQ_add_core_o" "', argument " "5"" of type '" "float *""'"); 
@@ -44555,7 +44557,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_add_core_o__SWIG_1(PyObject *SWIGUNUSEDPAR
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_core_o(arg2,(float const *)arg3,(long const *)arg4,arg5);
+      (arg1)->add_core_o(arg2,(float const *)arg3,arg4,arg5);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -44934,7 +44936,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_encode_multiple__SWIG_0(PyObject *SWIGUNUS
   PyObject *resultobj = 0;
   faiss::IndexIVFPQ *arg1 = (faiss::IndexIVFPQ *) 0 ;
   size_t arg2 ;
-  long *arg3 = (long *) 0 ;
+  int64_t *arg3 = 0 ;
   float *arg4 = (float *) 0 ;
   uint8_t *arg5 = (uint8_t *) 0 ;
   bool arg6 ;
@@ -44972,7 +44974,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_encode_multiple__SWIG_0(PyObject *SWIGUNUS
   if (!SWIG_IsOK(res3)) {
     SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "IndexIVFPQ_encode_multiple" "', argument " "3"" of type '" "long *""'"); 
   }
-  arg3 = reinterpret_cast< long * >(argp3);
+  arg3 = reinterpret_cast< int64_t * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFPQ_encode_multiple" "', argument " "4"" of type '" "float const *""'"); 
@@ -45010,7 +45012,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_encode_multiple__SWIG_1(PyObject *SWIGUNUS
   PyObject *resultobj = 0;
   faiss::IndexIVFPQ *arg1 = (faiss::IndexIVFPQ *) 0 ;
   size_t arg2 ;
-  long *arg3 = (long *) 0 ;
+  int64_t *arg3 = 0 ;
   float *arg4 = (float *) 0 ;
   uint8_t *arg5 = (uint8_t *) 0 ;
   void *argp1 = 0 ;
@@ -45044,7 +45046,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_encode_multiple__SWIG_1(PyObject *SWIGUNUS
   if (!SWIG_IsOK(res3)) {
     SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "IndexIVFPQ_encode_multiple" "', argument " "3"" of type '" "long *""'"); 
   }
-  arg3 = reinterpret_cast< long * >(argp3);
+  arg3 = reinterpret_cast< int64_t * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFPQ_encode_multiple" "', argument " "4"" of type '" "float const *""'"); 
@@ -45165,7 +45167,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_decode_multiple(PyObject *SWIGUNUSEDPARM(s
   PyObject *resultobj = 0;
   faiss::IndexIVFPQ *arg1 = (faiss::IndexIVFPQ *) 0 ;
   size_t arg2 ;
-  long *arg3 = (long *) 0 ;
+  int64_t *arg3 = 0 ;
   uint8_t *arg4 = (uint8_t *) 0 ;
   float *arg5 = (float *) 0 ;
   void *argp1 = 0 ;
@@ -45199,7 +45201,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_decode_multiple(PyObject *SWIGUNUSEDPARM(s
   if (!SWIG_IsOK(res3)) {
     SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "IndexIVFPQ_decode_multiple" "', argument " "3"" of type '" "long const *""'"); 
   }
-  arg3 = reinterpret_cast< long * >(argp3);
+  arg3 = reinterpret_cast< int64_t * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFPQ_decode_multiple" "', argument " "4"" of type '" "uint8_t const *""'"); 
@@ -45213,7 +45215,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQ_decode_multiple(PyObject *SWIGUNUSEDPARM(s
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      ((faiss::IndexIVFPQ const *)arg1)->decode_multiple(arg2,(long const *)arg3,(uint8_t const *)arg4,arg5);
+      ((faiss::IndexIVFPQ const *)arg1)->decode_multiple(arg2,arg3,(uint8_t const *)arg4,arg5);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -46578,7 +46580,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQR_add_with_ids(PyObject *SWIGUNUSEDPARM(sel
   faiss::IndexIVFPQR *arg1 = (faiss::IndexIVFPQR *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -46612,11 +46614,11 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQR_add_with_ids(PyObject *SWIGUNUSEDPARM(sel
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFPQR_add_with_ids" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_with_ids(arg2,(float const *)arg3,(long const *)arg4);
+      (arg1)->add_with_ids(arg2,(float const *)arg3,arg4);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -46636,8 +46638,8 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQR_add_core__SWIG_0(PyObject *SWIGUNUSEDPARM
   faiss::IndexIVFPQR *arg1 = (faiss::IndexIVFPQR *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
-  long *arg5 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
+  int64_t *arg5 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -46674,16 +46676,16 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQR_add_core__SWIG_0(PyObject *SWIGUNUSEDPARM
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFPQR_add_core" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res5)) {
     SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "IndexIVFPQR_add_core" "', argument " "5"" of type '" "long const *""'"); 
   }
-  arg5 = reinterpret_cast< long * >(argp5);
+  arg5 = reinterpret_cast< int64_t * >(argp5);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_core(arg2,(float const *)arg3,(long const *)arg4,(long const *)arg5);
+      (arg1)->add_core(arg2,(float const *)arg3,arg4,arg5);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -46703,7 +46705,7 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQR_add_core__SWIG_1(PyObject *SWIGUNUSEDPARM
   faiss::IndexIVFPQR *arg1 = (faiss::IndexIVFPQR *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -46737,11 +46739,11 @@ SWIGINTERN PyObject *_wrap_IndexIVFPQR_add_core__SWIG_1(PyObject *SWIGUNUSEDPARM
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIVFPQR_add_core" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_core(arg2,(float const *)arg3,(long const *)arg4);
+      (arg1)->add_core(arg2,(float const *)arg3,arg4);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -48185,7 +48187,7 @@ fail:
 SWIGINTERN PyObject *_wrap_IndexIDMap_id_map_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   faiss::IndexIDMap *arg1 = (faiss::IndexIDMap *) 0 ;
-  std::vector< long > *arg2 = (std::vector< long > *) 0 ;
+  std::vector< int64_t > *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -48203,7 +48205,7 @@ SWIGINTERN PyObject *_wrap_IndexIDMap_id_map_set(PyObject *SWIGUNUSEDPARM(self),
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "IndexIDMap_id_map_set" "', argument " "2"" of type '" "std::vector< long > *""'"); 
   }
-  arg2 = reinterpret_cast< std::vector< long > * >(argp2);
+  arg2 = reinterpret_cast< std::vector< int64_t > * >(argp2);
   if (arg1) (arg1)->id_map = *arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -48271,7 +48273,7 @@ SWIGINTERN PyObject *_wrap_IndexIDMap_add_with_ids(PyObject *SWIGUNUSEDPARM(self
   faiss::IndexIDMap *arg1 = (faiss::IndexIDMap *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -48305,11 +48307,11 @@ SWIGINTERN PyObject *_wrap_IndexIDMap_add_with_ids(PyObject *SWIGUNUSEDPARM(self
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIDMap_add_with_ids" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_with_ids(arg2,(float const *)arg3,(long const *)arg4);
+      (arg1)->add_with_ids(arg2,(float const *)arg3,arg4);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -48863,7 +48865,7 @@ SWIGINTERN PyObject *_wrap_IndexIDMap2_add_with_ids(PyObject *SWIGUNUSEDPARM(sel
   faiss::IndexIDMap2 *arg1 = (faiss::IndexIDMap2 *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -48897,11 +48899,11 @@ SWIGINTERN PyObject *_wrap_IndexIDMap2_add_with_ids(PyObject *SWIGUNUSEDPARM(sel
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexIDMap2_add_with_ids" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_with_ids(arg2,(float const *)arg3,(long const *)arg4);
+      (arg1)->add_with_ids(arg2,(float const *)arg3,arg4);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -49672,7 +49674,7 @@ SWIGINTERN PyObject *_wrap_IndexShards_add_with_ids(PyObject *SWIGUNUSEDPARM(sel
   faiss::IndexShards *arg1 = (faiss::IndexShards *) 0 ;
   faiss::Index::idx_t arg2 ;
   float *arg3 = (float *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -49706,11 +49708,11 @@ SWIGINTERN PyObject *_wrap_IndexShards_add_with_ids(PyObject *SWIGUNUSEDPARM(sel
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "IndexShards_add_with_ids" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   {
     Py_BEGIN_ALLOW_THREADS
     try {
-      (arg1)->add_with_ids(arg2,(float const *)arg3,(long const *)arg4);
+      (arg1)->add_with_ids(arg2,arg3,arg4);
     } catch(faiss::FaissException & e) {
       PyEval_RestoreThread(_save);
       PyErr_SetString(PyExc_RuntimeError, e.what());
@@ -56304,7 +56306,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_rev_swig_ptr__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  long *arg1 = (long *) 0 ;
+  long *arg1 = 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -56435,7 +56437,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_nh_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -56447,9 +56449,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_nh_set(PyObject *SWIGUNUSEDPARM
   if (!PyArg_ParseTuple(args,(char *)"OO:float_minheap_array_t_nh_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_nh_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_nh_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_nh_set" "', argument " "2"" of type '" "size_t""'");
@@ -56465,7 +56467,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_nh_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -56474,9 +56476,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_nh_get(PyObject *SWIGUNUSEDPARM
   if (!PyArg_ParseTuple(args,(char *)"O:float_minheap_array_t_nh_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_nh_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_nh_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   result = (size_t) ((arg1)->nh);
   resultobj = SWIG_From_size_t(static_cast< size_t >(result));
   return resultobj;
@@ -56487,7 +56489,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_k_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -56499,9 +56501,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_k_set(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"OO:float_minheap_array_t_k_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_k_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_k_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_k_set" "', argument " "2"" of type '" "size_t""'");
@@ -56517,7 +56519,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_k_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -56526,9 +56528,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_k_get(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"O:float_minheap_array_t_k_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_k_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_k_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   result = (size_t) ((arg1)->k);
   resultobj = SWIG_From_size_t(static_cast< size_t >(result));
   return resultobj;
@@ -56539,8 +56541,8 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_ids_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::TI *arg2 = (faiss::HeapArray< faiss::CMin< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *arg2 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -56551,14 +56553,14 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_ids_set(PyObject *SWIGUNUSEDPAR
   if (!PyArg_ParseTuple(args,(char *)"OO:float_minheap_array_t_ids_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_ids_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_ids_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_long, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_minheap_array_t_ids_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::TI *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_minheap_array_t_ids_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::TI * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::TI * >(argp2);
   if (arg1) (arg1)->ids = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -56569,19 +56571,19 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_ids_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::TI *result = 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"O:float_minheap_array_t_ids_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_ids_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_ids_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
-  result = (faiss::HeapArray< faiss::CMin< float,long > >::TI *) ((arg1)->ids);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
+  result = (faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *) ((arg1)->ids);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_long, 0 |  0 );
   return resultobj;
 fail:
@@ -56591,8 +56593,8 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_val_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *arg2 = (faiss::HeapArray< faiss::CMin< float,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *arg2 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -56603,14 +56605,14 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_val_set(PyObject *SWIGUNUSEDPAR
   if (!PyArg_ParseTuple(args,(char *)"OO:float_minheap_array_t_val_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_val_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_val_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_float, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_minheap_array_t_val_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::T *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_minheap_array_t_val_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::T *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::T * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::T * >(argp2);
   if (arg1) (arg1)->val = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -56621,19 +56623,19 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_val_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *result = 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"O:float_minheap_array_t_val_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_val_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_val_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
-  result = (faiss::HeapArray< faiss::CMin< float,long > >::T *) ((arg1)->val);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
+  result = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) ((arg1)->val);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_float, 0 |  0 );
   return resultobj;
 fail:
@@ -56643,7 +56645,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_get_val(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -56651,20 +56653,20 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_get_val(PyObject *SWIGUNUSEDPAR
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *result = 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"OO:float_minheap_array_t_get_val",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_get_val" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_get_val" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_get_val" "', argument " "2"" of type '" "size_t""'");
   } 
   arg2 = static_cast< size_t >(val2);
-  result = (faiss::HeapArray< faiss::CMin< float,long > >::T *)(arg1)->get_val(arg2);
+  result = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *)(arg1)->get_val(arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_float, 0 |  0 );
   return resultobj;
 fail:
@@ -56674,7 +56676,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_get_ids(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -56682,20 +56684,20 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_get_ids(PyObject *SWIGUNUSEDPAR
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::TI *result = 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"OO:float_minheap_array_t_get_ids",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_get_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_get_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_get_ids" "', argument " "2"" of type '" "size_t""'");
   } 
   arg2 = static_cast< size_t >(val2);
-  result = (faiss::HeapArray< faiss::CMin< float,long > >::TI *)(arg1)->get_ids(arg2);
+  result = (faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *)(arg1)->get_ids(arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_long, 0 |  0 );
   return resultobj;
 fail:
@@ -56705,7 +56707,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_heapify(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -56713,9 +56715,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_heapify(PyObject *SWIGUNUSEDPAR
   if (!PyArg_ParseTuple(args,(char *)"O:float_minheap_array_t_heapify",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_heapify" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_heapify" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   (arg1)->heapify();
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -56726,10 +56728,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::TI arg4 ;
   size_t arg5 ;
   long arg6 ;
   void *argp1 = 0 ;
@@ -56754,9 +56756,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_0(PyObject *SWIGUNUS
   if (!PyArg_ParseTuple(args,(char *)"OOOOOO:float_minheap_array_t_addn",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -56764,14 +56766,14 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_0(PyObject *SWIGUNUS
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMin< float,long > >::TI >(val4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::TI >(val4);
   ecode5 = SWIG_AsVal_size_t(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "float_minheap_array_t_addn" "', argument " "5"" of type '" "size_t""'");
@@ -56782,7 +56784,7 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_0(PyObject *SWIGUNUS
     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "float_minheap_array_t_addn" "', argument " "6"" of type '" "long""'");
   } 
   arg6 = static_cast< long >(val6);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< float,long > >::T const *)arg3,arg4,arg5,arg6);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *)arg3,arg4,arg5,arg6);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -56792,10 +56794,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::TI arg4 ;
   size_t arg5 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -56816,9 +56818,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_1(PyObject *SWIGUNUS
   if (!PyArg_ParseTuple(args,(char *)"OOOOO:float_minheap_array_t_addn",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -56826,20 +56828,20 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_1(PyObject *SWIGUNUS
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMin< float,long > >::TI >(val4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::TI >(val4);
   ecode5 = SWIG_AsVal_size_t(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "float_minheap_array_t_addn" "', argument " "5"" of type '" "size_t""'");
   } 
   arg5 = static_cast< size_t >(val5);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< float,long > >::T const *)arg3,arg4,arg5);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *)arg3,arg4,arg5);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -56849,10 +56851,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::TI arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -56869,9 +56871,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_2(PyObject *SWIGUNUS
   if (!PyArg_ParseTuple(args,(char *)"OOOO:float_minheap_array_t_addn",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -56879,15 +56881,15 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_2(PyObject *SWIGUNUS
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMin< float,long > >::TI >(val4);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< float,long > >::T const *)arg3,arg4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::TI >(val4);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *)arg3,arg4);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -56897,9 +56899,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -56913,9 +56915,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_3(PyObject *SWIGUNUS
   if (!PyArg_ParseTuple(args,(char *)"OOO:float_minheap_array_t_addn",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -56923,10 +56925,10 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn__SWIG_3(PyObject *SWIGUNUS
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::T * >(argp3);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< float,long > >::T const *)arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::T * >(argp3);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *)arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -57066,20 +57068,20 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn(PyObject *self, PyObject *
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'float_minheap_array_t_addn'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    faiss::HeapArray< faiss::CMin< float,long > >::addn(size_t,faiss::HeapArray< faiss::CMin< float,long > >::T const *,faiss::HeapArray< faiss::CMin< float,long > >::TI,size_t,long)\n"
-    "    faiss::HeapArray< faiss::CMin< float,long > >::addn(size_t,faiss::HeapArray< faiss::CMin< float,long > >::T const *,faiss::HeapArray< faiss::CMin< float,long > >::TI,size_t)\n"
-    "    faiss::HeapArray< faiss::CMin< float,long > >::addn(size_t,faiss::HeapArray< faiss::CMin< float,long > >::T const *,faiss::HeapArray< faiss::CMin< float,long > >::TI)\n"
-    "    faiss::HeapArray< faiss::CMin< float,long > >::addn(size_t,faiss::HeapArray< faiss::CMin< float,long > >::T const *)\n");
+    "    faiss::HeapArray< faiss::CMin< float,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< float,int64_t > >::TI,size_t,long)\n"
+    "    faiss::HeapArray< faiss::CMin< float,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< float,int64_t > >::TI,size_t)\n"
+    "    faiss::HeapArray< faiss::CMin< float,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< float,int64_t > >::TI)\n"
+    "    faiss::HeapArray< faiss::CMin< float,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *)\n");
   return 0;
 }
 
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *) 0 ;
   long arg5 ;
   size_t arg6 ;
   long arg7 ;
@@ -57108,9 +57110,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_0(PyObject 
   if (!PyArg_ParseTuple(args,(char *)"OOOOOOO:float_minheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -57118,14 +57120,14 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_0(PyObject 
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
@@ -57141,7 +57143,7 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_0(PyObject 
     SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "7"" of type '" "long""'");
   } 
   arg7 = static_cast< long >(val7);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< float,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< float,long > >::TI const *)arg4,arg5,arg6,arg7);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *)arg4,arg5,arg6,arg7);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -57151,10 +57153,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *) 0 ;
   long arg5 ;
   size_t arg6 ;
   void *argp1 = 0 ;
@@ -57179,9 +57181,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_1(PyObject 
   if (!PyArg_ParseTuple(args,(char *)"OOOOOO:float_minheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -57189,14 +57191,14 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_1(PyObject 
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
@@ -57207,7 +57209,7 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_1(PyObject 
     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "6"" of type '" "size_t""'");
   } 
   arg6 = static_cast< size_t >(val6);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< float,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< float,long > >::TI const *)arg4,arg5,arg6);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *)arg4,arg5,arg6);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -57217,10 +57219,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *) 0 ;
   long arg5 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -57241,9 +57243,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_2(PyObject 
   if (!PyArg_ParseTuple(args,(char *)"OOOOO:float_minheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -57251,20 +57253,20 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_2(PyObject 
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
   } 
   arg5 = static_cast< long >(val5);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< float,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< float,long > >::TI const *)arg4,arg5);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *)arg4,arg5);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -57274,10 +57276,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -57294,9 +57296,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_3(PyObject 
   if (!PyArg_ParseTuple(args,(char *)"OOOO:float_minheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -57304,15 +57306,15 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_3(PyObject 
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::TI * >(argp4);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< float,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< float,long > >::TI const *)arg4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::TI * >(argp4);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *)arg4);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -57322,9 +57324,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -57338,9 +57340,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_4(PyObject 
   if (!PyArg_ParseTuple(args,(char *)"OOO:float_minheap_array_t_addn_with_ids",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -57348,10 +57350,10 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids__SWIG_4(PyObject 
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::T * >(argp3);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< float,long > >::T const *)arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::T * >(argp3);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *)arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -57531,18 +57533,18 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_addn_with_ids(PyObject *self, P
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'float_minheap_array_t_addn_with_ids'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    faiss::HeapArray< faiss::CMin< float,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< float,long > >::T const *,faiss::HeapArray< faiss::CMin< float,long > >::TI const *,long,size_t,long)\n"
-    "    faiss::HeapArray< faiss::CMin< float,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< float,long > >::T const *,faiss::HeapArray< faiss::CMin< float,long > >::TI const *,long,size_t)\n"
-    "    faiss::HeapArray< faiss::CMin< float,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< float,long > >::T const *,faiss::HeapArray< faiss::CMin< float,long > >::TI const *,long)\n"
-    "    faiss::HeapArray< faiss::CMin< float,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< float,long > >::T const *,faiss::HeapArray< faiss::CMin< float,long > >::TI const *)\n"
-    "    faiss::HeapArray< faiss::CMin< float,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< float,long > >::T const *)\n");
+    "    faiss::HeapArray< faiss::CMin< float,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *,long,size_t,long)\n"
+    "    faiss::HeapArray< faiss::CMin< float,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *,long,size_t)\n"
+    "    faiss::HeapArray< faiss::CMin< float,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *,long)\n"
+    "    faiss::HeapArray< faiss::CMin< float,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< float,int64_t > >::TI const *)\n"
+    "    faiss::HeapArray< faiss::CMin< float,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< float,int64_t > >::T const *)\n");
   return 0;
 }
 
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_reorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -57550,9 +57552,9 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_reorder(PyObject *SWIGUNUSEDPAR
   if (!PyArg_ParseTuple(args,(char *)"O:float_minheap_array_t_reorder",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_reorder" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_reorder" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   (arg1)->reorder();
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -57563,9 +57565,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_minheap_array_t_per_line_extrema(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::T *arg2 = (faiss::HeapArray< faiss::CMin< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< float,long > >::TI *arg3 = (faiss::HeapArray< faiss::CMin< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::T *arg2 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *arg3 = (faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -57579,20 +57581,20 @@ SWIGINTERN PyObject *_wrap_float_minheap_array_t_per_line_extrema(PyObject *SWIG
   if (!PyArg_ParseTuple(args,(char *)"OOO:float_minheap_array_t_per_line_extrema",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_per_line_extrema" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_minheap_array_t_per_line_extrema" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > const *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_minheap_array_t_per_line_extrema" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::T *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_minheap_array_t_per_line_extrema" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::T *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::T * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::T * >(argp2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_per_line_extrema" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,long > >::TI *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_minheap_array_t_per_line_extrema" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > >::TI * >(argp3);
-  ((faiss::HeapArray< faiss::CMin< float,long > > const *)arg1)->per_line_extrema(arg2,arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > >::TI * >(argp3);
+  ((faiss::HeapArray< faiss::CMin< float,int64_t > > const *)arg1)->per_line_extrema(arg2,arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -57602,10 +57604,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_new_float_minheap_array_t(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *result = 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)":new_float_minheap_array_t")) SWIG_fail;
-  result = (faiss::HeapArray< faiss::CMin< float,long > > *)new faiss::HeapArray< faiss::CMin< float,long > >();
+  result = (faiss::HeapArray< faiss::CMin< float,int64_t > > *)new faiss::HeapArray< faiss::CMin< float,int64_t > >();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
@@ -57615,7 +57617,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_delete_float_minheap_array_t(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< float,long > > *arg1 = (faiss::HeapArray< faiss::CMin< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -57623,9 +57625,9 @@ SWIGINTERN PyObject *_wrap_delete_float_minheap_array_t(PyObject *SWIGUNUSEDPARM
   if (!PyArg_ParseTuple(args,(char *)"O:delete_float_minheap_array_t",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_float_minheap_array_t" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_float_minheap_array_t" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< float,int64_t > > * >(argp1);
   delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -57643,7 +57645,7 @@ SWIGINTERN PyObject *float_minheap_array_t_swigregister(PyObject *SWIGUNUSEDPARM
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_nh_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -57655,9 +57657,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_nh_set(PyObject *SWIGUNUSEDPARM(s
   if (!PyArg_ParseTuple(args,(char *)"OO:int_minheap_array_t_nh_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_nh_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_nh_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_nh_set" "', argument " "2"" of type '" "size_t""'");
@@ -57673,7 +57675,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_nh_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -57682,9 +57684,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_nh_get(PyObject *SWIGUNUSEDPARM(s
   if (!PyArg_ParseTuple(args,(char *)"O:int_minheap_array_t_nh_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_nh_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_nh_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   result = (size_t) ((arg1)->nh);
   resultobj = SWIG_From_size_t(static_cast< size_t >(result));
   return resultobj;
@@ -57695,7 +57697,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_k_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -57707,9 +57709,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_k_set(PyObject *SWIGUNUSEDPARM(se
   if (!PyArg_ParseTuple(args,(char *)"OO:int_minheap_array_t_k_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_k_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_k_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_k_set" "', argument " "2"" of type '" "size_t""'");
@@ -57725,7 +57727,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_k_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -57734,9 +57736,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_k_get(PyObject *SWIGUNUSEDPARM(se
   if (!PyArg_ParseTuple(args,(char *)"O:int_minheap_array_t_k_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_k_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_k_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   result = (size_t) ((arg1)->k);
   resultobj = SWIG_From_size_t(static_cast< size_t >(result));
   return resultobj;
@@ -57747,8 +57749,8 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_ids_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::TI *arg2 = (faiss::HeapArray< faiss::CMin< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *arg2 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -57759,14 +57761,14 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_ids_set(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"OO:int_minheap_array_t_ids_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_ids_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_ids_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_long, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_minheap_array_t_ids_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::TI *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_minheap_array_t_ids_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::TI * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::TI * >(argp2);
   if (arg1) (arg1)->ids = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -57777,19 +57779,19 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_ids_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::TI *result = 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"O:int_minheap_array_t_ids_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_ids_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_ids_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
-  result = (faiss::HeapArray< faiss::CMin< int,long > >::TI *) ((arg1)->ids);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
+  result = (faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *) ((arg1)->ids);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_long, 0 |  0 );
   return resultobj;
 fail:
@@ -57799,8 +57801,8 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_val_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *arg2 = (faiss::HeapArray< faiss::CMin< int,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *arg2 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -57811,14 +57813,14 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_val_set(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"OO:int_minheap_array_t_val_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_val_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_val_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_int, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_minheap_array_t_val_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::T *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_minheap_array_t_val_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::T *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::T * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::T * >(argp2);
   if (arg1) (arg1)->val = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -57829,19 +57831,19 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_val_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *result = 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"O:int_minheap_array_t_val_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_val_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_val_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
-  result = (faiss::HeapArray< faiss::CMin< int,long > >::T *) ((arg1)->val);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
+  result = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) ((arg1)->val);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_int, 0 |  0 );
   return resultobj;
 fail:
@@ -57851,7 +57853,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_get_val(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -57859,20 +57861,20 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_get_val(PyObject *SWIGUNUSEDPARM(
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *result = 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"OO:int_minheap_array_t_get_val",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_get_val" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_get_val" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_get_val" "', argument " "2"" of type '" "size_t""'");
   } 
   arg2 = static_cast< size_t >(val2);
-  result = (faiss::HeapArray< faiss::CMin< int,long > >::T *)(arg1)->get_val(arg2);
+  result = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *)(arg1)->get_val(arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_int, 0 |  0 );
   return resultobj;
 fail:
@@ -57882,7 +57884,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_get_ids(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -57890,20 +57892,20 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_get_ids(PyObject *SWIGUNUSEDPARM(
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::TI *result = 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"OO:int_minheap_array_t_get_ids",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_get_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_get_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_get_ids" "', argument " "2"" of type '" "size_t""'");
   } 
   arg2 = static_cast< size_t >(val2);
-  result = (faiss::HeapArray< faiss::CMin< int,long > >::TI *)(arg1)->get_ids(arg2);
+  result = (faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *)(arg1)->get_ids(arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_long, 0 |  0 );
   return resultobj;
 fail:
@@ -57913,7 +57915,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_heapify(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -57921,9 +57923,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_heapify(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"O:int_minheap_array_t_heapify",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_heapify" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_heapify" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   (arg1)->heapify();
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -57934,10 +57936,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::TI arg4 ;
   size_t arg5 ;
   long arg6 ;
   void *argp1 = 0 ;
@@ -57962,9 +57964,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_0(PyObject *SWIGUNUSED
   if (!PyArg_ParseTuple(args,(char *)"OOOOOO:int_minheap_array_t_addn",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -57972,14 +57974,14 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_0(PyObject *SWIGUNUSED
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMin< int,long > >::TI >(val4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::TI >(val4);
   ecode5 = SWIG_AsVal_size_t(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "int_minheap_array_t_addn" "', argument " "5"" of type '" "size_t""'");
@@ -57990,7 +57992,7 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_0(PyObject *SWIGUNUSED
     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "int_minheap_array_t_addn" "', argument " "6"" of type '" "long""'");
   } 
   arg6 = static_cast< long >(val6);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< int,long > >::T const *)arg3,arg4,arg5,arg6);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *)arg3,arg4,arg5,arg6);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -58000,10 +58002,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::TI arg4 ;
   size_t arg5 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -58024,9 +58026,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_1(PyObject *SWIGUNUSED
   if (!PyArg_ParseTuple(args,(char *)"OOOOO:int_minheap_array_t_addn",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -58034,20 +58036,20 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_1(PyObject *SWIGUNUSED
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMin< int,long > >::TI >(val4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::TI >(val4);
   ecode5 = SWIG_AsVal_size_t(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "int_minheap_array_t_addn" "', argument " "5"" of type '" "size_t""'");
   } 
   arg5 = static_cast< size_t >(val5);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< int,long > >::T const *)arg3,arg4,arg5);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *)arg3,arg4,arg5);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -58057,10 +58059,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::TI arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -58077,9 +58079,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_2(PyObject *SWIGUNUSED
   if (!PyArg_ParseTuple(args,(char *)"OOOO:int_minheap_array_t_addn",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -58087,15 +58089,15 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_2(PyObject *SWIGUNUSED
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_minheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMin< int,long > >::TI >(val4);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< int,long > >::T const *)arg3,arg4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::TI >(val4);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *)arg3,arg4);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -58105,9 +58107,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -58121,9 +58123,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_3(PyObject *SWIGUNUSED
   if (!PyArg_ParseTuple(args,(char *)"OOO:int_minheap_array_t_addn",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -58131,10 +58133,10 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn__SWIG_3(PyObject *SWIGUNUSED
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::T * >(argp3);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< int,long > >::T const *)arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::T * >(argp3);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *)arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -58274,20 +58276,20 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn(PyObject *self, PyObject *ar
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'int_minheap_array_t_addn'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    faiss::HeapArray< faiss::CMin< int,long > >::addn(size_t,faiss::HeapArray< faiss::CMin< int,long > >::T const *,faiss::HeapArray< faiss::CMin< int,long > >::TI,size_t,long)\n"
-    "    faiss::HeapArray< faiss::CMin< int,long > >::addn(size_t,faiss::HeapArray< faiss::CMin< int,long > >::T const *,faiss::HeapArray< faiss::CMin< int,long > >::TI,size_t)\n"
-    "    faiss::HeapArray< faiss::CMin< int,long > >::addn(size_t,faiss::HeapArray< faiss::CMin< int,long > >::T const *,faiss::HeapArray< faiss::CMin< int,long > >::TI)\n"
-    "    faiss::HeapArray< faiss::CMin< int,long > >::addn(size_t,faiss::HeapArray< faiss::CMin< int,long > >::T const *)\n");
+    "    faiss::HeapArray< faiss::CMin< int,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< int,int64_t > >::TI,size_t,long)\n"
+    "    faiss::HeapArray< faiss::CMin< int,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< int,int64_t > >::TI,size_t)\n"
+    "    faiss::HeapArray< faiss::CMin< int,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< int,int64_t > >::TI)\n"
+    "    faiss::HeapArray< faiss::CMin< int,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *)\n");
   return 0;
 }
 
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *) 0 ;
   long arg5 ;
   size_t arg6 ;
   long arg7 ;
@@ -58316,9 +58318,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_0(PyObject *S
   if (!PyArg_ParseTuple(args,(char *)"OOOOOOO:int_minheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -58326,14 +58328,14 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_0(PyObject *S
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
@@ -58349,7 +58351,7 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_0(PyObject *S
     SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "7"" of type '" "long""'");
   } 
   arg7 = static_cast< long >(val7);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< int,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< int,long > >::TI const *)arg4,arg5,arg6,arg7);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *)arg4,arg5,arg6,arg7);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -58359,10 +58361,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *) 0 ;
   long arg5 ;
   size_t arg6 ;
   void *argp1 = 0 ;
@@ -58387,9 +58389,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_1(PyObject *S
   if (!PyArg_ParseTuple(args,(char *)"OOOOOO:int_minheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -58397,14 +58399,14 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_1(PyObject *S
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
@@ -58415,7 +58417,7 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_1(PyObject *S
     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "6"" of type '" "size_t""'");
   } 
   arg6 = static_cast< size_t >(val6);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< int,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< int,long > >::TI const *)arg4,arg5,arg6);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *)arg4,arg5,arg6);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -58425,10 +58427,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *) 0 ;
   long arg5 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -58449,9 +58451,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_2(PyObject *S
   if (!PyArg_ParseTuple(args,(char *)"OOOOO:int_minheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -58459,20 +58461,20 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_2(PyObject *S
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
   } 
   arg5 = static_cast< long >(val5);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< int,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< int,long > >::TI const *)arg4,arg5);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *)arg4,arg5);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -58482,10 +58484,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -58502,9 +58504,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_3(PyObject *S
   if (!PyArg_ParseTuple(args,(char *)"OOOO:int_minheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -58512,15 +58514,15 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_3(PyObject *S
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::TI * >(argp4);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< int,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< int,long > >::TI const *)arg4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::TI * >(argp4);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *)arg4);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -58530,9 +58532,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -58546,9 +58548,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_4(PyObject *S
   if (!PyArg_ParseTuple(args,(char *)"OOO:int_minheap_array_t_addn_with_ids",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -58556,10 +58558,10 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids__SWIG_4(PyObject *S
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::T * >(argp3);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< int,long > >::T const *)arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::T * >(argp3);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *)arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -58739,18 +58741,18 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_addn_with_ids(PyObject *self, PyO
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'int_minheap_array_t_addn_with_ids'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    faiss::HeapArray< faiss::CMin< int,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< int,long > >::T const *,faiss::HeapArray< faiss::CMin< int,long > >::TI const *,long,size_t,long)\n"
-    "    faiss::HeapArray< faiss::CMin< int,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< int,long > >::T const *,faiss::HeapArray< faiss::CMin< int,long > >::TI const *,long,size_t)\n"
-    "    faiss::HeapArray< faiss::CMin< int,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< int,long > >::T const *,faiss::HeapArray< faiss::CMin< int,long > >::TI const *,long)\n"
-    "    faiss::HeapArray< faiss::CMin< int,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< int,long > >::T const *,faiss::HeapArray< faiss::CMin< int,long > >::TI const *)\n"
-    "    faiss::HeapArray< faiss::CMin< int,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< int,long > >::T const *)\n");
+    "    faiss::HeapArray< faiss::CMin< int,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *,long,size_t,long)\n"
+    "    faiss::HeapArray< faiss::CMin< int,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *,long,size_t)\n"
+    "    faiss::HeapArray< faiss::CMin< int,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *,long)\n"
+    "    faiss::HeapArray< faiss::CMin< int,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMin< int,int64_t > >::TI const *)\n"
+    "    faiss::HeapArray< faiss::CMin< int,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMin< int,int64_t > >::T const *)\n");
   return 0;
 }
 
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_reorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -58758,9 +58760,9 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_reorder(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"O:int_minheap_array_t_reorder",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_reorder" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_reorder" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   (arg1)->reorder();
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -58771,9 +58773,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_minheap_array_t_per_line_extrema(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::T *arg2 = (faiss::HeapArray< faiss::CMin< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMin< int,long > >::TI *arg3 = (faiss::HeapArray< faiss::CMin< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::T *arg2 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *arg3 = (faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -58787,20 +58789,20 @@ SWIGINTERN PyObject *_wrap_int_minheap_array_t_per_line_extrema(PyObject *SWIGUN
   if (!PyArg_ParseTuple(args,(char *)"OOO:int_minheap_array_t_per_line_extrema",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_per_line_extrema" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_minheap_array_t_per_line_extrema" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > const *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_minheap_array_t_per_line_extrema" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::T *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_minheap_array_t_per_line_extrema" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::T *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::T * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::T * >(argp2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_per_line_extrema" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,long > >::TI *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_minheap_array_t_per_line_extrema" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > >::TI * >(argp3);
-  ((faiss::HeapArray< faiss::CMin< int,long > > const *)arg1)->per_line_extrema(arg2,arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > >::TI * >(argp3);
+  ((faiss::HeapArray< faiss::CMin< int,int64_t > > const *)arg1)->per_line_extrema(arg2,arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -58810,10 +58812,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_new_int_minheap_array_t(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *result = 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)":new_int_minheap_array_t")) SWIG_fail;
-  result = (faiss::HeapArray< faiss::CMin< int,long > > *)new faiss::HeapArray< faiss::CMin< int,long > >();
+  result = (faiss::HeapArray< faiss::CMin< int,int64_t > > *)new faiss::HeapArray< faiss::CMin< int,int64_t > >();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
@@ -58823,7 +58825,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_delete_int_minheap_array_t(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMin< int,long > > *arg1 = (faiss::HeapArray< faiss::CMin< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMin< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMin< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -58831,9 +58833,9 @@ SWIGINTERN PyObject *_wrap_delete_int_minheap_array_t(PyObject *SWIGUNUSEDPARM(s
   if (!PyArg_ParseTuple(args,(char *)"O:delete_int_minheap_array_t",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_int_minheap_array_t" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_int_minheap_array_t" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMin< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMin< int,int64_t > > * >(argp1);
   delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -58851,7 +58853,7 @@ SWIGINTERN PyObject *int_minheap_array_t_swigregister(PyObject *SWIGUNUSEDPARM(s
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_nh_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float, int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float, int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -58863,9 +58865,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_nh_set(PyObject *SWIGUNUSEDPARM
   if (!PyArg_ParseTuple(args,(char *)"OO:float_maxheap_array_t_nh_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_nh_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_nh_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float, int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_nh_set" "', argument " "2"" of type '" "size_t""'");
@@ -58881,7 +58883,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_nh_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float, int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -58890,9 +58892,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_nh_get(PyObject *SWIGUNUSEDPARM
   if (!PyArg_ParseTuple(args,(char *)"O:float_maxheap_array_t_nh_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_nh_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_nh_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float, int64_t > > * >(argp1);
   result = (size_t) ((arg1)->nh);
   resultobj = SWIG_From_size_t(static_cast< size_t >(result));
   return resultobj;
@@ -58903,7 +58905,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_k_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float, int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float, int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -58915,9 +58917,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_k_set(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"OO:float_maxheap_array_t_k_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_k_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_k_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float, int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_k_set" "', argument " "2"" of type '" "size_t""'");
@@ -58933,7 +58935,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_k_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float, int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float, int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -58942,9 +58944,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_k_get(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"O:float_maxheap_array_t_k_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_k_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_k_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float, int64_t > > * >(argp1);
   result = (size_t) ((arg1)->k);
   resultobj = SWIG_From_size_t(static_cast< size_t >(result));
   return resultobj;
@@ -58955,8 +58957,8 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_ids_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::TI *arg2 = (faiss::HeapArray< faiss::CMax< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< float, int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float, int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float, int64_t > >::TI *arg2 = (faiss::HeapArray< faiss::CMax< float, int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -58967,14 +58969,14 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_ids_set(PyObject *SWIGUNUSEDPAR
   if (!PyArg_ParseTuple(args,(char *)"OO:float_maxheap_array_t_ids_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_ids_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_ids_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_long, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_maxheap_array_t_ids_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::TI *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_maxheap_array_t_ids_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::TI * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::TI * >(argp2);
   if (arg1) (arg1)->ids = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -58985,19 +58987,19 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_ids_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::TI *result = 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"O:float_maxheap_array_t_ids_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_ids_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_ids_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
-  result = (faiss::HeapArray< faiss::CMax< float,long > >::TI *) ((arg1)->ids);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
+  result = (faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *) ((arg1)->ids);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_long, 0 |  0 );
   return resultobj;
 fail:
@@ -59007,8 +59009,8 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_val_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *arg2 = (faiss::HeapArray< faiss::CMax< float,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *arg2 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -59019,14 +59021,14 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_val_set(PyObject *SWIGUNUSEDPAR
   if (!PyArg_ParseTuple(args,(char *)"OO:float_maxheap_array_t_val_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_val_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_val_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_float, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_maxheap_array_t_val_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::T *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_maxheap_array_t_val_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::T *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::T * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::T * >(argp2);
   if (arg1) (arg1)->val = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -59037,19 +59039,19 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_val_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *result = 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"O:float_maxheap_array_t_val_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_val_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_val_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
-  result = (faiss::HeapArray< faiss::CMax< float,long > >::T *) ((arg1)->val);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
+  result = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) ((arg1)->val);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_float, 0 |  0 );
   return resultobj;
 fail:
@@ -59059,7 +59061,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_get_val(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -59067,20 +59069,20 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_get_val(PyObject *SWIGUNUSEDPAR
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *result = 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"OO:float_maxheap_array_t_get_val",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_get_val" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_get_val" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_get_val" "', argument " "2"" of type '" "size_t""'");
   } 
   arg2 = static_cast< size_t >(val2);
-  result = (faiss::HeapArray< faiss::CMax< float,long > >::T *)(arg1)->get_val(arg2);
+  result = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *)(arg1)->get_val(arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_float, 0 |  0 );
   return resultobj;
 fail:
@@ -59090,7 +59092,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_get_ids(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -59098,20 +59100,20 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_get_ids(PyObject *SWIGUNUSEDPAR
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::TI *result = 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"OO:float_maxheap_array_t_get_ids",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_get_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_get_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_get_ids" "', argument " "2"" of type '" "size_t""'");
   } 
   arg2 = static_cast< size_t >(val2);
-  result = (faiss::HeapArray< faiss::CMax< float,long > >::TI *)(arg1)->get_ids(arg2);
+  result = (faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *)(arg1)->get_ids(arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_long, 0 |  0 );
   return resultobj;
 fail:
@@ -59121,7 +59123,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_heapify(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -59129,9 +59131,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_heapify(PyObject *SWIGUNUSEDPAR
   if (!PyArg_ParseTuple(args,(char *)"O:float_maxheap_array_t_heapify",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_heapify" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_heapify" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   (arg1)->heapify();
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -59142,10 +59144,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::TI arg4 ;
   size_t arg5 ;
   long arg6 ;
   void *argp1 = 0 ;
@@ -59170,9 +59172,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_0(PyObject *SWIGUNUS
   if (!PyArg_ParseTuple(args,(char *)"OOOOOO:float_maxheap_array_t_addn",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -59180,14 +59182,14 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_0(PyObject *SWIGUNUS
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMax< float,long > >::TI >(val4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::TI >(val4);
   ecode5 = SWIG_AsVal_size_t(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "float_maxheap_array_t_addn" "', argument " "5"" of type '" "size_t""'");
@@ -59198,7 +59200,7 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_0(PyObject *SWIGUNUS
     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "float_maxheap_array_t_addn" "', argument " "6"" of type '" "long""'");
   } 
   arg6 = static_cast< long >(val6);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< float,long > >::T const *)arg3,arg4,arg5,arg6);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *)arg3,arg4,arg5,arg6);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -59208,10 +59210,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::TI arg4 ;
   size_t arg5 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -59232,9 +59234,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_1(PyObject *SWIGUNUS
   if (!PyArg_ParseTuple(args,(char *)"OOOOO:float_maxheap_array_t_addn",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -59242,20 +59244,20 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_1(PyObject *SWIGUNUS
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMax< float,long > >::TI >(val4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::TI >(val4);
   ecode5 = SWIG_AsVal_size_t(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "float_maxheap_array_t_addn" "', argument " "5"" of type '" "size_t""'");
   } 
   arg5 = static_cast< size_t >(val5);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< float,long > >::T const *)arg3,arg4,arg5);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *)arg3,arg4,arg5);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -59265,10 +59267,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::TI arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -59285,9 +59287,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_2(PyObject *SWIGUNUS
   if (!PyArg_ParseTuple(args,(char *)"OOOO:float_maxheap_array_t_addn",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -59295,15 +59297,15 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_2(PyObject *SWIGUNUS
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "float_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMax< float,long > >::TI >(val4);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< float,long > >::T const *)arg3,arg4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::TI >(val4);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *)arg3,arg4);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -59313,9 +59315,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -59329,9 +59331,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_3(PyObject *SWIGUNUS
   if (!PyArg_ParseTuple(args,(char *)"OOO:float_maxheap_array_t_addn",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -59339,10 +59341,10 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn__SWIG_3(PyObject *SWIGUNUS
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::T * >(argp3);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< float,long > >::T const *)arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::T * >(argp3);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *)arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -59482,20 +59484,20 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn(PyObject *self, PyObject *
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'float_maxheap_array_t_addn'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    faiss::HeapArray< faiss::CMax< float,long > >::addn(size_t,faiss::HeapArray< faiss::CMax< float,long > >::T const *,faiss::HeapArray< faiss::CMax< float,long > >::TI,size_t,long)\n"
-    "    faiss::HeapArray< faiss::CMax< float,long > >::addn(size_t,faiss::HeapArray< faiss::CMax< float,long > >::T const *,faiss::HeapArray< faiss::CMax< float,long > >::TI,size_t)\n"
-    "    faiss::HeapArray< faiss::CMax< float,long > >::addn(size_t,faiss::HeapArray< faiss::CMax< float,long > >::T const *,faiss::HeapArray< faiss::CMax< float,long > >::TI)\n"
-    "    faiss::HeapArray< faiss::CMax< float,long > >::addn(size_t,faiss::HeapArray< faiss::CMax< float,long > >::T const *)\n");
+    "    faiss::HeapArray< faiss::CMax< float,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< float,int64_t > >::TI,size_t,long)\n"
+    "    faiss::HeapArray< faiss::CMax< float,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< float,int64_t > >::TI,size_t)\n"
+    "    faiss::HeapArray< faiss::CMax< float,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< float,int64_t > >::TI)\n"
+    "    faiss::HeapArray< faiss::CMax< float,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *)\n");
   return 0;
 }
 
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *) 0 ;
   long arg5 ;
   size_t arg6 ;
   long arg7 ;
@@ -59524,9 +59526,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_0(PyObject 
   if (!PyArg_ParseTuple(args,(char *)"OOOOOOO:float_maxheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -59534,14 +59536,14 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_0(PyObject 
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
@@ -59557,7 +59559,7 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_0(PyObject 
     SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "7"" of type '" "long""'");
   } 
   arg7 = static_cast< long >(val7);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< float,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< float,long > >::TI const *)arg4,arg5,arg6,arg7);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *)arg4,arg5,arg6,arg7);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -59567,10 +59569,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *) 0 ;
   long arg5 ;
   size_t arg6 ;
   void *argp1 = 0 ;
@@ -59595,9 +59597,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_1(PyObject 
   if (!PyArg_ParseTuple(args,(char *)"OOOOOO:float_maxheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -59605,14 +59607,14 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_1(PyObject 
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
@@ -59623,7 +59625,7 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_1(PyObject 
     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "6"" of type '" "size_t""'");
   } 
   arg6 = static_cast< size_t >(val6);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< float,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< float,long > >::TI const *)arg4,arg5,arg6);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *)arg4,arg5,arg6);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -59633,10 +59635,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *) 0 ;
   long arg5 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -59657,9 +59659,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_2(PyObject 
   if (!PyArg_ParseTuple(args,(char *)"OOOOO:float_maxheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -59667,20 +59669,20 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_2(PyObject 
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
   } 
   arg5 = static_cast< long >(val5);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< float,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< float,long > >::TI const *)arg4,arg5);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *)arg4,arg5);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -59690,10 +59692,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -59710,9 +59712,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_3(PyObject 
   if (!PyArg_ParseTuple(args,(char *)"OOOO:float_maxheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -59720,15 +59722,15 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_3(PyObject 
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::TI * >(argp4);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< float,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< float,long > >::TI const *)arg4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::TI * >(argp4);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *)arg4);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -59738,9 +59740,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -59754,9 +59756,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_4(PyObject 
   if (!PyArg_ParseTuple(args,(char *)"OOO:float_maxheap_array_t_addn_with_ids",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -59764,10 +59766,10 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids__SWIG_4(PyObject 
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::T * >(argp3);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< float,long > >::T const *)arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::T * >(argp3);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *)arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -59947,18 +59949,18 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_addn_with_ids(PyObject *self, P
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'float_maxheap_array_t_addn_with_ids'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    faiss::HeapArray< faiss::CMax< float,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< float,long > >::T const *,faiss::HeapArray< faiss::CMax< float,long > >::TI const *,long,size_t,long)\n"
-    "    faiss::HeapArray< faiss::CMax< float,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< float,long > >::T const *,faiss::HeapArray< faiss::CMax< float,long > >::TI const *,long,size_t)\n"
-    "    faiss::HeapArray< faiss::CMax< float,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< float,long > >::T const *,faiss::HeapArray< faiss::CMax< float,long > >::TI const *,long)\n"
-    "    faiss::HeapArray< faiss::CMax< float,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< float,long > >::T const *,faiss::HeapArray< faiss::CMax< float,long > >::TI const *)\n"
-    "    faiss::HeapArray< faiss::CMax< float,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< float,long > >::T const *)\n");
+    "    faiss::HeapArray< faiss::CMax< float,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *,long,size_t,long)\n"
+    "    faiss::HeapArray< faiss::CMax< float,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *,long,size_t)\n"
+    "    faiss::HeapArray< faiss::CMax< float,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *,long)\n"
+    "    faiss::HeapArray< faiss::CMax< float,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< float,int64_t > >::TI const *)\n"
+    "    faiss::HeapArray< faiss::CMax< float,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< float,int64_t > >::T const *)\n");
   return 0;
 }
 
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_reorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -59966,9 +59968,9 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_reorder(PyObject *SWIGUNUSEDPAR
   if (!PyArg_ParseTuple(args,(char *)"O:float_maxheap_array_t_reorder",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_reorder" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_reorder" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   (arg1)->reorder();
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -59979,9 +59981,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_float_maxheap_array_t_per_line_extrema(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::T *arg2 = (faiss::HeapArray< faiss::CMax< float,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< float,long > >::TI *arg3 = (faiss::HeapArray< faiss::CMax< float,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::T *arg2 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *arg3 = (faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -59995,20 +59997,20 @@ SWIGINTERN PyObject *_wrap_float_maxheap_array_t_per_line_extrema(PyObject *SWIG
   if (!PyArg_ParseTuple(args,(char *)"OOO:float_maxheap_array_t_per_line_extrema",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_per_line_extrema" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "float_maxheap_array_t_per_line_extrema" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > const *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_float, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_maxheap_array_t_per_line_extrema" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::T *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "float_maxheap_array_t_per_line_extrema" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::T *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::T * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::T * >(argp2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_per_line_extrema" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,long > >::TI *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "float_maxheap_array_t_per_line_extrema" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > >::TI * >(argp3);
-  ((faiss::HeapArray< faiss::CMax< float,long > > const *)arg1)->per_line_extrema(arg2,arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > >::TI * >(argp3);
+  ((faiss::HeapArray< faiss::CMax< float,int64_t > > const *)arg1)->per_line_extrema(arg2,arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -60018,10 +60020,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_new_float_maxheap_array_t(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *result = 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)":new_float_maxheap_array_t")) SWIG_fail;
-  result = (faiss::HeapArray< faiss::CMax< float,long > > *)new faiss::HeapArray< faiss::CMax< float,long > >();
+  result = (faiss::HeapArray< faiss::CMax< float,int64_t > > *)new faiss::HeapArray< faiss::CMax< float,int64_t > >();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
@@ -60031,7 +60033,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_delete_float_maxheap_array_t(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< float,long > > *arg1 = (faiss::HeapArray< faiss::CMax< float,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< float,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< float,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -60039,9 +60041,9 @@ SWIGINTERN PyObject *_wrap_delete_float_maxheap_array_t(PyObject *SWIGUNUSEDPARM
   if (!PyArg_ParseTuple(args,(char *)"O:delete_float_maxheap_array_t",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_float_maxheap_array_t" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_float_maxheap_array_t" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< float,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< float,int64_t > > * >(argp1);
   delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -60059,7 +60061,7 @@ SWIGINTERN PyObject *float_maxheap_array_t_swigregister(PyObject *SWIGUNUSEDPARM
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_nh_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -60071,9 +60073,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_nh_set(PyObject *SWIGUNUSEDPARM(s
   if (!PyArg_ParseTuple(args,(char *)"OO:int_maxheap_array_t_nh_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_nh_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_nh_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_nh_set" "', argument " "2"" of type '" "size_t""'");
@@ -60089,7 +60091,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_nh_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -60098,9 +60100,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_nh_get(PyObject *SWIGUNUSEDPARM(s
   if (!PyArg_ParseTuple(args,(char *)"O:int_maxheap_array_t_nh_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_nh_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_nh_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   result = (size_t) ((arg1)->nh);
   resultobj = SWIG_From_size_t(static_cast< size_t >(result));
   return resultobj;
@@ -60111,7 +60113,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_k_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -60123,9 +60125,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_k_set(PyObject *SWIGUNUSEDPARM(se
   if (!PyArg_ParseTuple(args,(char *)"OO:int_maxheap_array_t_k_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_k_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_k_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_k_set" "', argument " "2"" of type '" "size_t""'");
@@ -60141,7 +60143,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_k_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -60150,9 +60152,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_k_get(PyObject *SWIGUNUSEDPARM(se
   if (!PyArg_ParseTuple(args,(char *)"O:int_maxheap_array_t_k_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_k_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_k_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   result = (size_t) ((arg1)->k);
   resultobj = SWIG_From_size_t(static_cast< size_t >(result));
   return resultobj;
@@ -60163,8 +60165,8 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_ids_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::TI *arg2 = (faiss::HeapArray< faiss::CMax< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *arg2 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -60175,14 +60177,14 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_ids_set(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"OO:int_maxheap_array_t_ids_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_ids_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_ids_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_long, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_maxheap_array_t_ids_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::TI *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_maxheap_array_t_ids_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::TI * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::TI * >(argp2);
   if (arg1) (arg1)->ids = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -60193,19 +60195,19 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_ids_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::TI *result = 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"O:int_maxheap_array_t_ids_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_ids_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_ids_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
-  result = (faiss::HeapArray< faiss::CMax< int,long > >::TI *) ((arg1)->ids);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
+  result = (faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *) ((arg1)->ids);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_long, 0 |  0 );
   return resultobj;
 fail:
@@ -60215,8 +60217,8 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_val_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *arg2 = (faiss::HeapArray< faiss::CMax< int,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *arg2 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -60227,14 +60229,14 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_val_set(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"OO:int_maxheap_array_t_val_set",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_val_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_val_set" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_int, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_maxheap_array_t_val_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::T *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_maxheap_array_t_val_set" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::T *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::T * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::T * >(argp2);
   if (arg1) (arg1)->val = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -60245,19 +60247,19 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_val_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *result = 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"O:int_maxheap_array_t_val_get",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_val_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_val_get" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
-  result = (faiss::HeapArray< faiss::CMax< int,long > >::T *) ((arg1)->val);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
+  result = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) ((arg1)->val);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_int, 0 |  0 );
   return resultobj;
 fail:
@@ -60267,7 +60269,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_get_val(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -60275,20 +60277,20 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_get_val(PyObject *SWIGUNUSEDPARM(
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *result = 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"OO:int_maxheap_array_t_get_val",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_get_val" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_get_val" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_get_val" "', argument " "2"" of type '" "size_t""'");
   } 
   arg2 = static_cast< size_t >(val2);
-  result = (faiss::HeapArray< faiss::CMax< int,long > >::T *)(arg1)->get_val(arg2);
+  result = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *)(arg1)->get_val(arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_int, 0 |  0 );
   return resultobj;
 fail:
@@ -60298,7 +60300,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_get_ids(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -60306,20 +60308,20 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_get_ids(PyObject *SWIGUNUSEDPARM(
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::TI *result = 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)"OO:int_maxheap_array_t_get_ids",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_get_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_get_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_get_ids" "', argument " "2"" of type '" "size_t""'");
   } 
   arg2 = static_cast< size_t >(val2);
-  result = (faiss::HeapArray< faiss::CMax< int,long > >::TI *)(arg1)->get_ids(arg2);
+  result = (faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *)(arg1)->get_ids(arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_long, 0 |  0 );
   return resultobj;
 fail:
@@ -60329,7 +60331,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_heapify(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -60337,9 +60339,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_heapify(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"O:int_maxheap_array_t_heapify",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_heapify" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_heapify" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   (arg1)->heapify();
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -60350,10 +60352,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::TI arg4 ;
   size_t arg5 ;
   long arg6 ;
   void *argp1 = 0 ;
@@ -60378,9 +60380,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_0(PyObject *SWIGUNUSED
   if (!PyArg_ParseTuple(args,(char *)"OOOOOO:int_maxheap_array_t_addn",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -60388,14 +60390,14 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_0(PyObject *SWIGUNUSED
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMax< int,long > >::TI >(val4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::TI >(val4);
   ecode5 = SWIG_AsVal_size_t(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "int_maxheap_array_t_addn" "', argument " "5"" of type '" "size_t""'");
@@ -60406,7 +60408,7 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_0(PyObject *SWIGUNUSED
     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "int_maxheap_array_t_addn" "', argument " "6"" of type '" "long""'");
   } 
   arg6 = static_cast< long >(val6);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< int,long > >::T const *)arg3,arg4,arg5,arg6);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *)arg3,arg4,arg5,arg6);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -60416,10 +60418,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::TI arg4 ;
   size_t arg5 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -60440,9 +60442,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_1(PyObject *SWIGUNUSED
   if (!PyArg_ParseTuple(args,(char *)"OOOOO:int_maxheap_array_t_addn",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -60450,20 +60452,20 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_1(PyObject *SWIGUNUSED
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMax< int,long > >::TI >(val4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::TI >(val4);
   ecode5 = SWIG_AsVal_size_t(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "int_maxheap_array_t_addn" "', argument " "5"" of type '" "size_t""'");
   } 
   arg5 = static_cast< size_t >(val5);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< int,long > >::T const *)arg3,arg4,arg5);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *)arg3,arg4,arg5);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -60473,10 +60475,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::TI arg4 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::TI arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -60493,9 +60495,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_2(PyObject *SWIGUNUSED
   if (!PyArg_ParseTuple(args,(char *)"OOOO:int_maxheap_array_t_addn",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -60503,15 +60505,15 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_2(PyObject *SWIGUNUSED
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::T * >(argp3);
   ecode4 = SWIG_AsVal_long(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::TI""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "int_maxheap_array_t_addn" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::TI""'");
   } 
-  arg4 = static_cast< faiss::HeapArray< faiss::CMax< int,long > >::TI >(val4);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< int,long > >::T const *)arg3,arg4);
+  arg4 = static_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::TI >(val4);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *)arg3,arg4);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -60521,9 +60523,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -60537,9 +60539,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_3(PyObject *SWIGUNUSED
   if (!PyArg_ParseTuple(args,(char *)"OOO:int_maxheap_array_t_addn",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_addn" "', argument " "2"" of type '" "size_t""'");
@@ -60547,10 +60549,10 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn__SWIG_3(PyObject *SWIGUNUSED
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::T * >(argp3);
-  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< int,long > >::T const *)arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::T * >(argp3);
+  (arg1)->addn(arg2,(faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *)arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -60690,20 +60692,20 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn(PyObject *self, PyObject *ar
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'int_maxheap_array_t_addn'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    faiss::HeapArray< faiss::CMax< int,long > >::addn(size_t,faiss::HeapArray< faiss::CMax< int,long > >::T const *,faiss::HeapArray< faiss::CMax< int,long > >::TI,size_t,long)\n"
-    "    faiss::HeapArray< faiss::CMax< int,long > >::addn(size_t,faiss::HeapArray< faiss::CMax< int,long > >::T const *,faiss::HeapArray< faiss::CMax< int,long > >::TI,size_t)\n"
-    "    faiss::HeapArray< faiss::CMax< int,long > >::addn(size_t,faiss::HeapArray< faiss::CMax< int,long > >::T const *,faiss::HeapArray< faiss::CMax< int,long > >::TI)\n"
-    "    faiss::HeapArray< faiss::CMax< int,long > >::addn(size_t,faiss::HeapArray< faiss::CMax< int,long > >::T const *)\n");
+    "    faiss::HeapArray< faiss::CMax< int,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< int,int64_t > >::TI,size_t,long)\n"
+    "    faiss::HeapArray< faiss::CMax< int,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< int,int64_t > >::TI,size_t)\n"
+    "    faiss::HeapArray< faiss::CMax< int,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< int,int64_t > >::TI)\n"
+    "    faiss::HeapArray< faiss::CMax< int,int64_t > >::addn(size_t,faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *)\n");
   return 0;
 }
 
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *) 0 ;
   long arg5 ;
   size_t arg6 ;
   long arg7 ;
@@ -60732,9 +60734,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_0(PyObject *S
   if (!PyArg_ParseTuple(args,(char *)"OOOOOOO:int_maxheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -60742,14 +60744,14 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_0(PyObject *S
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
@@ -60765,7 +60767,7 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_0(PyObject *S
     SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "7"" of type '" "long""'");
   } 
   arg7 = static_cast< long >(val7);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< int,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< int,long > >::TI const *)arg4,arg5,arg6,arg7);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *)arg4,arg5,arg6,arg7);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -60775,10 +60777,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *) 0 ;
   long arg5 ;
   size_t arg6 ;
   void *argp1 = 0 ;
@@ -60803,9 +60805,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_1(PyObject *S
   if (!PyArg_ParseTuple(args,(char *)"OOOOOO:int_maxheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -60813,14 +60815,14 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_1(PyObject *S
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
@@ -60831,7 +60833,7 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_1(PyObject *S
     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "6"" of type '" "size_t""'");
   } 
   arg6 = static_cast< size_t >(val6);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< int,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< int,long > >::TI const *)arg4,arg5,arg6);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *)arg4,arg5,arg6);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -60841,10 +60843,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *) 0 ;
   long arg5 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -60865,9 +60867,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_2(PyObject *S
   if (!PyArg_ParseTuple(args,(char *)"OOOOO:int_maxheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -60875,20 +60877,20 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_2(PyObject *S
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::TI * >(argp4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::TI * >(argp4);
   ecode5 = SWIG_AsVal_long(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "5"" of type '" "long""'");
   } 
   arg5 = static_cast< long >(val5);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< int,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< int,long > >::TI const *)arg4,arg5);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *)arg4,arg5);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -60898,10 +60900,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *arg4 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -60918,9 +60920,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_3(PyObject *S
   if (!PyArg_ParseTuple(args,(char *)"OOOO:int_maxheap_array_t_addn_with_ids",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -60928,15 +60930,15 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_3(PyObject *S
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::T * >(argp3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::T * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::TI const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "4"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *""'"); 
   }
-  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::TI * >(argp4);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< int,long > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< int,long > >::TI const *)arg4);
+  arg4 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::TI * >(argp4);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *)arg3,(faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *)arg4);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -60946,9 +60948,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   size_t arg2 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,long > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *arg3 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -60962,9 +60964,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_4(PyObject *S
   if (!PyArg_ParseTuple(args,(char *)"OOO:int_maxheap_array_t_addn_with_ids",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   ecode2 = SWIG_AsVal_size_t(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "2"" of type '" "size_t""'");
@@ -60972,10 +60974,10 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids__SWIG_4(PyObject *S
   arg2 = static_cast< size_t >(val2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::T const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_addn_with_ids" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::T * >(argp3);
-  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< int,long > >::T const *)arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::T * >(argp3);
+  (arg1)->addn_with_ids(arg2,(faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *)arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -61155,18 +61157,18 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_addn_with_ids(PyObject *self, PyO
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'int_maxheap_array_t_addn_with_ids'.\n"
     "  Possible C/C++ prototypes are:\n"
-    "    faiss::HeapArray< faiss::CMax< int,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< int,long > >::T const *,faiss::HeapArray< faiss::CMax< int,long > >::TI const *,long,size_t,long)\n"
-    "    faiss::HeapArray< faiss::CMax< int,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< int,long > >::T const *,faiss::HeapArray< faiss::CMax< int,long > >::TI const *,long,size_t)\n"
-    "    faiss::HeapArray< faiss::CMax< int,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< int,long > >::T const *,faiss::HeapArray< faiss::CMax< int,long > >::TI const *,long)\n"
-    "    faiss::HeapArray< faiss::CMax< int,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< int,long > >::T const *,faiss::HeapArray< faiss::CMax< int,long > >::TI const *)\n"
-    "    faiss::HeapArray< faiss::CMax< int,long > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< int,long > >::T const *)\n");
+    "    faiss::HeapArray< faiss::CMax< int,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *,long,size_t,long)\n"
+    "    faiss::HeapArray< faiss::CMax< int,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *,long,size_t)\n"
+    "    faiss::HeapArray< faiss::CMax< int,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *,long)\n"
+    "    faiss::HeapArray< faiss::CMax< int,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *,faiss::HeapArray< faiss::CMax< int,int64_t > >::TI const *)\n"
+    "    faiss::HeapArray< faiss::CMax< int,int64_t > >::addn_with_ids(size_t,faiss::HeapArray< faiss::CMax< int,int64_t > >::T const *)\n");
   return 0;
 }
 
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_reorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -61174,9 +61176,9 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_reorder(PyObject *SWIGUNUSEDPARM(
   if (!PyArg_ParseTuple(args,(char *)"O:int_maxheap_array_t_reorder",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_reorder" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_reorder" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   (arg1)->reorder();
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -61187,9 +61189,9 @@ fail:
 
 SWIGINTERN PyObject *_wrap_int_maxheap_array_t_per_line_extrema(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::T *arg2 = (faiss::HeapArray< faiss::CMax< int,long > >::T *) 0 ;
-  faiss::HeapArray< faiss::CMax< int,long > >::TI *arg3 = (faiss::HeapArray< faiss::CMax< int,long > >::TI *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::T *arg2 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::T *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *arg3 = (faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -61203,20 +61205,20 @@ SWIGINTERN PyObject *_wrap_int_maxheap_array_t_per_line_extrema(PyObject *SWIGUN
   if (!PyArg_ParseTuple(args,(char *)"OOO:int_maxheap_array_t_per_line_extrema",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_per_line_extrema" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "int_maxheap_array_t_per_line_extrema" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > const *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_int, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_maxheap_array_t_per_line_extrema" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::T *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "int_maxheap_array_t_per_line_extrema" "', argument " "2"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::T *""'"); 
   }
-  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::T * >(argp2);
+  arg2 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::T * >(argp2);
   res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_per_line_extrema" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,long > >::TI *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "int_maxheap_array_t_per_line_extrema" "', argument " "3"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *""'"); 
   }
-  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > >::TI * >(argp3);
-  ((faiss::HeapArray< faiss::CMax< int,long > > const *)arg1)->per_line_extrema(arg2,arg3);
+  arg3 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > >::TI * >(argp3);
+  ((faiss::HeapArray< faiss::CMax< int,int64_t > > const *)arg1)->per_line_extrema(arg2,arg3);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -61226,10 +61228,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_new_int_maxheap_array_t(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *result = 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *result = 0 ;
   
   if (!PyArg_ParseTuple(args,(char *)":new_int_maxheap_array_t")) SWIG_fail;
-  result = (faiss::HeapArray< faiss::CMax< int,long > > *)new faiss::HeapArray< faiss::CMax< int,long > >();
+  result = (faiss::HeapArray< faiss::CMax< int,int64_t > > *)new faiss::HeapArray< faiss::CMax< int,int64_t > >();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
@@ -61239,7 +61241,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_delete_int_maxheap_array_t(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  faiss::HeapArray< faiss::CMax< int,long > > *arg1 = (faiss::HeapArray< faiss::CMax< int,long > > *) 0 ;
+  faiss::HeapArray< faiss::CMax< int,int64_t > > *arg1 = (faiss::HeapArray< faiss::CMax< int,int64_t > > *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -61247,9 +61249,9 @@ SWIGINTERN PyObject *_wrap_delete_int_maxheap_array_t(PyObject *SWIGUNUSEDPARM(s
   if (!PyArg_ParseTuple(args,(char *)"O:delete_int_maxheap_array_t",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_int_maxheap_array_t" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,long > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_int_maxheap_array_t" "', argument " "1"" of type '" "faiss::HeapArray< faiss::CMax< int,int64_t > > *""'"); 
   }
-  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,long > > * >(argp1);
+  arg1 = reinterpret_cast< faiss::HeapArray< faiss::CMax< int,int64_t > > * >(argp1);
   delete arg1;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -62981,8 +62983,8 @@ SWIGINTERN PyObject *_wrap_MapLong2Long_add(PyObject *SWIGUNUSEDPARM(self), PyOb
   PyObject *resultobj = 0;
   MapLong2Long *arg1 = (MapLong2Long *) 0 ;
   size_t arg2 ;
-  long *arg3 = (long *) 0 ;
-  long *arg4 = (long *) 0 ;
+  int64_t *arg3 = 0 ;
+  int64_t *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -63011,12 +63013,12 @@ SWIGINTERN PyObject *_wrap_MapLong2Long_add(PyObject *SWIGUNUSEDPARM(self), PyOb
   if (!SWIG_IsOK(res3)) {
     SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "MapLong2Long_add" "', argument " "3"" of type '" "long const *""'"); 
   }
-  arg3 = reinterpret_cast< long * >(argp3);
+  arg3 = reinterpret_cast< int64_t * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "MapLong2Long_add" "', argument " "4"" of type '" "long const *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast< int64_t * >(argp4);
   (arg1)->add(arg2,(long const *)arg3,(long const *)arg4);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -63060,8 +63062,8 @@ SWIGINTERN PyObject *_wrap_MapLong2Long_search_multiple(PyObject *SWIGUNUSEDPARM
   PyObject *resultobj = 0;
   MapLong2Long *arg1 = (MapLong2Long *) 0 ;
   size_t arg2 ;
-  long *arg3 = (long *) 0 ;
-  long *arg4 = (long *) 0 ;
+  long *arg3 = 0 ;
+  long *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   size_t val2 ;
@@ -63090,12 +63092,12 @@ SWIGINTERN PyObject *_wrap_MapLong2Long_search_multiple(PyObject *SWIGUNUSEDPARM
   if (!SWIG_IsOK(res3)) {
     SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "MapLong2Long_search_multiple" "', argument " "3"" of type '" "long const *""'"); 
   }
-  arg3 = reinterpret_cast< long * >(argp3);
+  arg3 = reinterpret_cast<long * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_long, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "MapLong2Long_search_multiple" "', argument " "4"" of type '" "long *""'"); 
   }
-  arg4 = reinterpret_cast< long * >(argp4);
+  arg4 = reinterpret_cast<long * >(argp4);
   (arg1)->search_multiple(arg2,(long const *)arg3,arg4);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -64901,10 +64903,10 @@ static swig_type_info _swigt__p_faiss__HammingComputer8 = {"_p_faiss__HammingCom
 static swig_type_info _swigt__p_faiss__HammingComputerDefault = {"_p_faiss__HammingComputerDefault", "faiss::HammingComputerDefault *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_faiss__HammingComputerM4 = {"_p_faiss__HammingComputerM4", "faiss::HammingComputerM4 *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_faiss__HammingComputerM8 = {"_p_faiss__HammingComputerM8", "faiss::HammingComputerM8 *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t = {"_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t", "faiss::HeapArray< faiss::CMax< float,long > > *|faiss::float_maxheap_array_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t = {"_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t", "faiss::HeapArray< faiss::CMax< int,long > > *|faiss::int_maxheap_array_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t = {"_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t", "faiss::HeapArray< faiss::CMin< float,long > > *|faiss::float_minheap_array_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t = {"_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t", "faiss::HeapArray< faiss::CMin< int,long > > *|faiss::int_minheap_array_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t = {"_p_faiss__HeapArrayT_faiss__CMaxT_float_long_t_t", "faiss::HeapArray< faiss::CMax< float,int64_t > > *|faiss::float_maxheap_array_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t = {"_p_faiss__HeapArrayT_faiss__CMaxT_int_long_t_t", "faiss::HeapArray< faiss::CMax< int,int64_t > > *|faiss::int_maxheap_array_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t = {"_p_faiss__HeapArrayT_faiss__CMinT_float_long_t_t", "faiss::HeapArray< faiss::CMin< float,int64_t > > *|faiss::float_minheap_array_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t = {"_p_faiss__HeapArrayT_faiss__CMinT_int_long_t_t", "faiss::HeapArray< faiss::CMin< int,int64_t > > *|faiss::int_minheap_array_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_faiss__IDSelector = {"_p_faiss__IDSelector", "faiss::IDSelector *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_faiss__IDSelectorBatch = {"_p_faiss__IDSelectorBatch", "faiss::IDSelectorBatch *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_faiss__IDSelectorRange = {"_p_faiss__IDSelectorRange", "faiss::IDSelectorRange *", 0, 0, (void*)0, 0};
@@ -64973,10 +64975,10 @@ static swig_type_info _swigt__p_faiss__SimulatedAnnealingOptimizer = {"_p_faiss_
 static swig_type_info _swigt__p_faiss__SimulatedAnnealingParameters = {"_p_faiss__SimulatedAnnealingParameters", "faiss::SimulatedAnnealingParameters *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_faiss__VectorTransform = {"_p_faiss__VectorTransform", "faiss::VectorTransform *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_faiss__VisitedTable = {"_p_faiss__VisitedTable", "faiss::VisitedTable *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_float = {"_p_float", "float *|faiss::HeapArray< faiss::CMin< float,long > >::T *|faiss::HeapArray< faiss::CMax< float,long > >::T *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_float = {"_p_float", "float *|faiss::HeapArray< faiss::CMin< float,int64_t > >::T *|faiss::HeapArray< faiss::CMax< float,int64_t > >::T *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_idx_t = {"_p_idx_t", "idx_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_int = {"_p_int", "int *|int32_t *|hamdis_t *|faiss::HeapArray< faiss::CMin< int,long > >::T *|faiss::HeapArray< faiss::CMax< int,long > >::T *|faiss::IndexHNSW::storage_idx_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_long = {"_p_long", "long *|faiss::HeapArray< faiss::CMax< float,long > >::TI *|faiss::HeapArray< faiss::CMin< float,long > >::TI *|faiss::AutoTuneCriterion::idx_t *|faiss::ReconstructFromNeighbors::idx_t *|faiss::HNSW::idx_t *|faiss::InvertedLists::idx_t *|faiss::Index::idx_t *|faiss::RangeSearchResult::idx_t *|faiss::IDSelector::idx_t *|faiss::BufferList::idx_t *|faiss::HeapArray< faiss::CMin< int,long > >::TI *|faiss::HeapArray< faiss::CMax< int,long > >::TI *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_int = {"_p_int", "int *|int32_t *|hamdis_t *|faiss::HeapArray< faiss::CMin< int,int64_t > >::T *|faiss::HeapArray< faiss::CMax< int,int64_t > >::T *|faiss::IndexHNSW::storage_idx_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_long = {"_p_long", "long *|faiss::HeapArray< faiss::CMax< float,int64_t > >::TI *|faiss::HeapArray< faiss::CMin< float,int64_t > >::TI *|faiss::AutoTuneCriterion::idx_t *|faiss::ReconstructFromNeighbors::idx_t *|faiss::HNSW::idx_t *|faiss::InvertedLists::idx_t *|faiss::Index::idx_t *|faiss::RangeSearchResult::idx_t *|faiss::IDSelector::idx_t *|faiss::BufferList::idx_t *|faiss::HeapArray< faiss::CMin< int,int64_t > >::TI *|faiss::HeapArray< faiss::CMax< int,int64_t > >::TI *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_faiss__Index = {"_p_p_faiss__Index", "faiss::Index **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_faiss__IndexPreTransform = {"_p_p_faiss__IndexPreTransform", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_faiss__IndexIVF = {"_p_p_faiss__IndexIVF", 0, 0, 0, 0, 0};

@@ -39,7 +39,15 @@
 #include "cublas_v2.h"
 #include "cuda_runtime.h"
 
+#ifdef _WIN32
 
+#include <windows.h>
+#include <psapi.h>
+
+#undef min
+#undef max
+
+#endif
 
 extern "C" {
 
@@ -110,6 +118,16 @@ size_t get_mem_usage_kb ()
 {
     fprintf(stderr, "WARN: get_mem_usage_kb not implemented on the mac\n");
     return 0;
+}
+
+#elif defined(_WIN32)
+
+size_t get_mem_usage_kb()
+{
+    PROCESS_MEMORY_COUNTERS memCounter;
+    BOOL result = GetProcessMemoryInfo(GetCurrentProcess(),
+        &memCounter,
+        sizeof(memCounter));
 }
 
 #endif
@@ -208,9 +226,10 @@ long RandomGenerator::rand_long ()
 
 
 #endif
-RandomGenerator::RandomGenerator(long nSeed):ss({nSeed}),uni_long(0,0x7FFFFFFFFFFFFFFF) {
+RandomGenerator::RandomGenerator(long nSeed):/*ss({nSeed}),*/uni_long(0,0x7FFFFFFFFFFFFFFF) {
 	max_long = 0x7FFFFFFFFFFFFFFF;
 	max_int = 0x7FFFFFFF;
+    rng.seed(nSeed);
 }
 
 int RandomGenerator::rand_int() {
@@ -1684,8 +1703,8 @@ size_t merge_result_table_with (size_t n, size_t k,
 
 
 
-size_t ranklist_intersection_size (size_t k1, const long *v1,
-                                   size_t k2, const long *v2_in)
+size_t ranklist_intersection_size (size_t k1, const int64_t *v1,
+                                   size_t k2, const int64_t *v2_in)
 {
     if (k2 > k1) return ranklist_intersection_size (k2, v2_in, k1, v1);
     int64_t *v2 = new int64_t[k2];

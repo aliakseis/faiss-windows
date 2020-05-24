@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "blas-test", "blas-test\blas
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "faiss-test", "faiss-test.vcxproj", "{70DC71C5-0CBC-46AD-8FAC-91D36F74954E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_swigfaiss", "python\_swigfaiss\_swigfaiss.vcxproj", "{71327E47-BC66-4EC0-BF2F-7E1646A04CCE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_swigfaiss_gpu", "python\_swigfaiss_gpu\_swigfaiss_gpu.vcxproj", "{10E287C7-F389-4486-B1F8-01EAFED0D336}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -43,6 +47,22 @@ Global
 		{70DC71C5-0CBC-46AD-8FAC-91D36F74954E}.Release|x64.Build.0 = Release|x64
 		{70DC71C5-0CBC-46AD-8FAC-91D36F74954E}.Release|x86.ActiveCfg = Release|Win32
 		{70DC71C5-0CBC-46AD-8FAC-91D36F74954E}.Release|x86.Build.0 = Release|Win32
+		{71327E47-BC66-4EC0-BF2F-7E1646A04CCE}.Debug|x64.ActiveCfg = Debug|x64
+		{71327E47-BC66-4EC0-BF2F-7E1646A04CCE}.Debug|x64.Build.0 = Debug|x64
+		{71327E47-BC66-4EC0-BF2F-7E1646A04CCE}.Debug|x86.ActiveCfg = Debug|Win32
+		{71327E47-BC66-4EC0-BF2F-7E1646A04CCE}.Debug|x86.Build.0 = Debug|Win32
+		{71327E47-BC66-4EC0-BF2F-7E1646A04CCE}.Release|x64.ActiveCfg = Release|x64
+		{71327E47-BC66-4EC0-BF2F-7E1646A04CCE}.Release|x64.Build.0 = Release|x64
+		{71327E47-BC66-4EC0-BF2F-7E1646A04CCE}.Release|x86.ActiveCfg = Release|Win32
+		{71327E47-BC66-4EC0-BF2F-7E1646A04CCE}.Release|x86.Build.0 = Release|Win32
+		{10E287C7-F389-4486-B1F8-01EAFED0D336}.Debug|x64.ActiveCfg = Debug|x64
+		{10E287C7-F389-4486-B1F8-01EAFED0D336}.Debug|x64.Build.0 = Debug|x64
+		{10E287C7-F389-4486-B1F8-01EAFED0D336}.Debug|x86.ActiveCfg = Debug|Win32
+		{10E287C7-F389-4486-B1F8-01EAFED0D336}.Debug|x86.Build.0 = Debug|Win32
+		{10E287C7-F389-4486-B1F8-01EAFED0D336}.Release|x64.ActiveCfg = Release|x64
+		{10E287C7-F389-4486-B1F8-01EAFED0D336}.Release|x64.Build.0 = Release|x64
+		{10E287C7-F389-4486-B1F8-01EAFED0D336}.Release|x86.ActiveCfg = Release|Win32
+		{10E287C7-F389-4486-B1F8-01EAFED0D336}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

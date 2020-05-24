@@ -23,7 +23,6 @@
     <ProjectGuid>{95303DA8-E1C9-475C-AE7F-AED7BC4981B7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>windowsfaiss</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -172,6 +171,7 @@
     <ClInclude Include="VectorTransform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AutoTune.cpp" />
     <ClCompile Include="AuxIndexStructures.cpp" />
     <ClCompile Include="Clustering.cpp" />
     <ClCompile Include="FaissException.cpp" />
@@ -188,10 +188,12 @@
     <ClCompile Include="IndexScalarQuantizer.cpp" />
     <ClCompile Include="index_io.cpp" />
     <ClCompile Include="MetaIndexes.cpp" />
+    <ClCompile Include="OnDiskInvertedLists.cpp" />
     <ClCompile Include="PolysemousTraining.cpp" />
     <ClCompile Include="ProductQuantizer.cpp" />
     <ClCompile Include="utils.cpp" />
     <ClCompile Include="VectorTransform.cpp" />
+    <ClCompile Include="windows-mmap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

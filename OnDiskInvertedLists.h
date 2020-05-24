@@ -94,7 +94,7 @@ struct OnDiskInvertedLists: InvertedLists {
     // allocating slots)
     size_t merge_from (const InvertedLists **ils, int n_il);
 
-    void prefetch_lists (const long *list_nos, int nlist) const override;
+    void prefetch_lists (const int64_t *list_nos, int nlist) const override;
 
     virtual ~OnDiskInvertedLists ();
 
