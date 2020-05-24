@@ -128,6 +128,8 @@ size_t get_mem_usage_kb()
     BOOL result = GetProcessMemoryInfo(GetCurrentProcess(),
         &memCounter,
         sizeof(memCounter));
+
+    return result? memCounter.WorkingSetSize : 0;
 }
 
 #endif
@@ -908,87 +910,87 @@ static void knn_inner_product_blas (
     res->reorder ();
 }
 
-void knn_L2sqr_cublas(cublasHandle_t handle,const float * x,
-	const float * y,
-	size_t d, size_t nx, size_t ny,
-	float_maxheap_array_t * res) {
-
-	res->heapify ();
-
-    // BLAS does not like empty matrices
-    if (nx == 0 || ny == 0) return;
-
-    size_t k = res->k;
-
-    /* block sizes */
-    const size_t bs_x = 1024, bs_y = 1024*64;
-    // const size_t bs_x = 16, bs_y = 16;
-    std::vector<float> ip_block(bs_x * bs_y);
-
-    std::vector<float> x_norms(nx);
-    fvec_norms_L2sqr (x_norms.data(), x, d, nx);
-
-    std::vector<float> y_norms(ny);
-    fvec_norms_L2sqr (y_norms.data(), y, d, ny);
-	//if we assume that gpu memory is not big enough, then we should not copy 
-	//all the database vectors into gpu once for all,instead we copy them, blokc by block
-	cudaError_t cudastat;
-	float* d_x;  //the address to the gpu memory storing the current block of the database vectors
-	float* d_y;  //the address to the gpu memory storing the current block of the query vectors
-	float* d_ip_block;  //the address to the gpu memory storing the inner product result
-	//allocate gpu memory for result
-	cudastat = cudaMalloc((void**)&d_ip_block,bs_x*bs_y*sizeof(float));
-    for (size_t i0 = 0; i0 < nx; i0 += bs_x) {
-        size_t i1 = i0 + bs_x;
-        if(i1 > nx) i1 = nx;
-		//copy the current block database vectors into gpu
-		cudastat= cudaMalloc((void**)&d_x,(i1-i0)*d*sizeof(float));
-		cudastat= cudaMemcpy(d_x,x + i0 * d,sizeof(float)*(i1-i0)*d,cudaMemcpyHostToDevice); 
-        for (size_t j0 = 0; j0 < ny; j0 += bs_y) {
-            size_t j1 = j0 + bs_y;
-            if (j1 > ny) j1 = ny;
-			cudastat= cudaMalloc((void**)&d_y,(j1-j0)*d*sizeof(float));
-			cudastat= cudaMemcpy(d_y,y + j0 * d,sizeof(float)*(j1-j0)*d,cudaMemcpyHostToDevice); 
-			
-            /* compute the actual dot products */
-            {
-                float one = 1, zero = 0;
-                FINTEGER nyi = j1 - j0, nxi = i1 - i0, di = d;
-                cublasStatus_t status = cublasSgemm (handle,CUBLAS_OP_T, CUBLAS_OP_N, nyi, nxi, di, &one,
-                        d_y, di,d_x, di, &zero,d_ip_block, nyi);
-				if (status != CUBLAS_STATUS_SUCCESS) {
-					throw std::exception("cublas operation failed");
-				}
-				//copy result back from gpu
-				cudaMemcpy(ip_block.data(),d_ip_block,sizeof(float)*(j1-j0)*(i1-i0),cudaMemcpyDeviceToHost);
-            }
-			cudaFree(d_y);
-
-            /* collect minima */
-#pragma omp parallel for
-            for (size_t i = i0; i < i1; i++) {
-                float * __restrict simi = res->get_val(i);
-				int64_t * __restrict idxi = res->get_ids (i);
-                const float *ip_line = ip_block.data() + (i - i0) * (j1 - j0);
-
-                for (size_t j = j0; j < j1; j++) {
-                    float ip = *ip_line++;
-                    float dis = x_norms[i] + y_norms[j] - 2 * ip;
-
-                    //dis = corr (dis, i, j);
-
-                    if (dis < simi[0]) {
-                        maxheap_pop (k, simi, idxi);
-                        maxheap_push (k, simi, idxi, dis, j);
-                    }
-                }
-            }
-        }
-		cudaFree(d_x);
-    }
-	cudaFree(d_ip_block);
-    res->reorder ();
-}
+//void knn_L2sqr_cublas(cublasHandle_t handle,const float * x,
+//	const float * y,
+//	size_t d, size_t nx, size_t ny,
+//	float_maxheap_array_t * res) {
+//
+//	res->heapify ();
+//
+//    // BLAS does not like empty matrices
+//    if (nx == 0 || ny == 0) return;
+//
+//    size_t k = res->k;
+//
+//    /* block sizes */
+//    const size_t bs_x = 1024, bs_y = 1024*64;
+//    // const size_t bs_x = 16, bs_y = 16;
+//    std::vector<float> ip_block(bs_x * bs_y);
+//
+//    std::vector<float> x_norms(nx);
+//    fvec_norms_L2sqr (x_norms.data(), x, d, nx);
+//
+//    std::vector<float> y_norms(ny);
+//    fvec_norms_L2sqr (y_norms.data(), y, d, ny);
+//	//if we assume that gpu memory is not big enough, then we should not copy 
+//	//all the database vectors into gpu once for all,instead we copy them, blokc by block
+//	cudaError_t cudastat;
+//	float* d_x;  //the address to the gpu memory storing the current block of the database vectors
+//	float* d_y;  //the address to the gpu memory storing the current block of the query vectors
+//	float* d_ip_block;  //the address to the gpu memory storing the inner product result
+//	//allocate gpu memory for result
+//	cudastat = cudaMalloc((void**)&d_ip_block,bs_x*bs_y*sizeof(float));
+//    for (size_t i0 = 0; i0 < nx; i0 += bs_x) {
+//        size_t i1 = i0 + bs_x;
+//        if(i1 > nx) i1 = nx;
+//		//copy the current block database vectors into gpu
+//		cudastat= cudaMalloc((void**)&d_x,(i1-i0)*d*sizeof(float));
+//		cudastat= cudaMemcpy(d_x,x + i0 * d,sizeof(float)*(i1-i0)*d,cudaMemcpyHostToDevice); 
+//        for (size_t j0 = 0; j0 < ny; j0 += bs_y) {
+//            size_t j1 = j0 + bs_y;
+//            if (j1 > ny) j1 = ny;
+//			cudastat= cudaMalloc((void**)&d_y,(j1-j0)*d*sizeof(float));
+//			cudastat= cudaMemcpy(d_y,y + j0 * d,sizeof(float)*(j1-j0)*d,cudaMemcpyHostToDevice); 
+//			
+//            /* compute the actual dot products */
+//            {
+//                float one = 1, zero = 0;
+//                FINTEGER nyi = j1 - j0, nxi = i1 - i0, di = d;
+//                cublasStatus_t status = cublasSgemm (handle,CUBLAS_OP_T, CUBLAS_OP_N, nyi, nxi, di, &one,
+//                        d_y, di,d_x, di, &zero,d_ip_block, nyi);
+//				if (status != CUBLAS_STATUS_SUCCESS) {
+//					throw std::exception("cublas operation failed");
+//				}
+//				//copy result back from gpu
+//				cudaMemcpy(ip_block.data(),d_ip_block,sizeof(float)*(j1-j0)*(i1-i0),cudaMemcpyDeviceToHost);
+//            }
+//			cudaFree(d_y);
+//
+//            /* collect minima */
+//#pragma omp parallel for
+//            for (size_t i = i0; i < i1; i++) {
+//                float * __restrict simi = res->get_val(i);
+//				int64_t * __restrict idxi = res->get_ids (i);
+//                const float *ip_line = ip_block.data() + (i - i0) * (j1 - j0);
+//
+//                for (size_t j = j0; j < j1; j++) {
+//                    float ip = *ip_line++;
+//                    float dis = x_norms[i] + y_norms[j] - 2 * ip;
+//
+//                    //dis = corr (dis, i, j);
+//
+//                    if (dis < simi[0]) {
+//                        maxheap_pop (k, simi, idxi);
+//                        maxheap_push (k, simi, idxi, dis, j);
+//                    }
+//                }
+//            }
+//        }
+//		cudaFree(d_x);
+//    }
+//	cudaFree(d_ip_block);
+//    res->reorder ();
+//}
 // distance correction is an operator that can be applied to transform
 // the distances
 template<class DistanceCorrection>

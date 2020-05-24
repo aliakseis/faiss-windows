@@ -108,6 +108,8 @@ struct IndexFlatIP:IndexFlat {
     IndexFlatIP () {}
 };
 
+#if 0
+
 struct GPU_IndexFlatL2 :IndexFlat {
 	cublasHandle_t handle;
 	explicit GPU_IndexFlatL2 (int d);
@@ -165,6 +167,8 @@ struct GPU_IndexFlatFP16L2 : Index{
 
 	virtual void reset();
 };
+
+#endif
 
 struct IndexFlatL2:IndexFlat {
     explicit IndexFlatL2 (int d): IndexFlat (d, METRIC_L2) {}

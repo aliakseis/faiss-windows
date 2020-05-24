@@ -121,6 +121,8 @@ void IndexFlat::reconstruct (idx_t key, float * recons) const
     memcpy (recons, &(xb[key * d]), sizeof(*recons) * d);
 }
 
+#if 0
+
 GPU_IndexFlatL2::GPU_IndexFlatL2(int d):IndexFlat(d,METRIC_L2) {
 	cublasStatus_t stat;
 	stat=cublasCreate(&handle);
@@ -261,6 +263,8 @@ void GPU_IndexFlatFP16L2::reset() {
 /***************************************************
  * IndexFlatL2BaseShift
  ***************************************************/
+
+#endif
 
 IndexFlatL2BaseShift::IndexFlatL2BaseShift (int d, size_t nshift, const float *shift):
     IndexFlatL2 (d), shift (nshift)
