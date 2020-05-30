@@ -96,7 +96,7 @@ static uint32_t fourcc (const char sx[4]) {
     }
 
 #define READVECTOR(vec) {                       \
-        long size;                            \
+        size_t size;                            \
         READANDCHECK (&size, 1);                \
         FAISS_THROW_IF_NOT (size >= 0 && size < (((uint64_t)1 << 40)));  \
         (vec).resize (size);                    \
@@ -286,7 +286,7 @@ static void write_InvertedLists (const InvertedLists *ils, IOWriter *f) {
 
 
 void write_ProductQuantizer (const ProductQuantizer*pq, const char *fname) {
-    FILE *f = fopen (fname, "w");
+    FILE *f = fopen (fname, "wb");
     FAISS_THROW_IF_NOT_FMT (f, "cannot open %s for writing", fname);
     ScopeFileCloser closer(f);
 
@@ -456,14 +456,14 @@ void write_index (const Index *idx, FILE *f) {
 }
 
 void write_index (const Index *idx, const char *fname) {
-    FILE *f = fopen (fname, "w");
+    FILE *f = fopen (fname, "wb");
     FAISS_THROW_IF_NOT_FMT (f, "cannot open %s for writing", fname);
     ScopeFileCloser closer(f);
     write_index (idx, f);
 }
 
 void write_VectorTransform (const VectorTransform *vt, const char *fname) {
-    FILE *f = fopen (fname, "w");
+    FILE *f = fopen (fname, "wb");
     FAISS_THROW_IF_NOT_FMT (f, "cannot open %s for writing", fname);
     ScopeFileCloser closer(f);
 
@@ -685,7 +685,7 @@ static void read_HNSW (HNSW *hnsw, IOReader *f) {
 }
 
 ProductQuantizer * read_ProductQuantizer (const char*fname) {
-    FILE *f = fopen (fname, "r");
+    FILE *f = fopen (fname, "rb");
     FAISS_THROW_IF_NOT_FMT (f, "cannot open %s for writing", fname);
     ScopeFileCloser closer(f);
     ProductQuantizer *pq = new ProductQuantizer();
@@ -963,7 +963,7 @@ Index *read_index (FILE * f, int io_flags) {
 }
 
 Index *read_index (const char *fname, int io_flags) {
-    FILE *f = fopen (fname, "r");
+    FILE *f = fopen (fname, "rb");
     FAISS_THROW_IF_NOT_FMT (f, "cannot open %s for reading:", fname);
     Index *idx = read_index (f, io_flags);
     fclose (f);
@@ -971,7 +971,7 @@ Index *read_index (const char *fname, int io_flags) {
 }
 
 VectorTransform *read_VectorTransform (const char *fname) {
-    FILE *f = fopen (fname, "r");
+    FILE *f = fopen (fname, "rb");
     if (!f) {
         fprintf (stderr, "cannot open %s for reading:", fname);
         perror ("");
