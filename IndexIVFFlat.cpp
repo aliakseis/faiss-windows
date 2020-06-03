@@ -99,7 +99,7 @@ void search_knn_inner_product (const IndexIVFFlat & ivf,
     size_t d = ivf.d;
 
 #pragma omp parallel for reduction(+: nlistv, ndis)
-    for (size_t i = 0; i < nx; i++) {
+    for (ptrdiff_t i = 0; i < nx; i++) {
         const float * xi = x + i * d;
         const int64_t * keysi = keys + i * ivf.nprobe;
         float * __restrict simi = res->get_val (i);
@@ -158,7 +158,7 @@ void search_knn_L2sqr (const IndexIVFFlat &ivf,
     size_t nlistv = 0, ndis = 0;
     size_t d = ivf.d;
 #pragma omp parallel for reduction(+: nlistv, ndis)
-    for (size_t i = 0; i < nx; i++) {
+    for (ptrdiff_t i = 0; i < nx; i++) {
         const float * xi = x + i * d;
         const int64_t * keysi = keys + i * ivf.nprobe;
         float * __restrict disi = res->get_val (i);

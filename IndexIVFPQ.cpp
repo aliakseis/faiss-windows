@@ -952,7 +952,7 @@ void IndexIVFPQ::search_preassigned (idx_t nx, const float *qx, idx_t k,
         uint64_t heap_cycles = 0;
 
 #pragma omp  for
-        for (size_t i = 0; i < nx; i++) {
+        for (ptrdiff_t i = 0; i < nx; i++) {
             const float *qi = qx + i * d;
             const int64_t * keysi = keys + i * nprobe;
             const float *coarse_dis_i = coarse_dis + i * nprobe;

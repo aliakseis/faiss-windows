@@ -389,7 +389,7 @@ int64_t IndexIVF::remove_ids (const IDSelector & sel)
     std::vector<int64_t> toremove(nlist);
 
 #pragma omp parallel for
-    for (size_t i = 0; i < nlist; i++) {
+    for (ptrdiff_t i = 0; i < nlist; i++) {
         int64_t l0 = invlists->list_size (i), l = l0, j = 0;
         const idx_t *idsi = invlists->get_ids (i);
         while (j < l) {

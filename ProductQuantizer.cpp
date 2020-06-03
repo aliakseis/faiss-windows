@@ -389,7 +389,7 @@ void ProductQuantizer::compute_codes (const float * x,
     if (dsub < 16) { // simple direct computation
 
 #pragma omp parallel for
-        for (size_t i = 0; i < n; i++)
+        for (ptrdiff_t i = 0; i < n; i++)
             compute_code (x + i * d, codes + i * code_size);
 
     } else { // worthwile to use BLAS
@@ -398,7 +398,7 @@ void ProductQuantizer::compute_codes (const float * x,
         compute_distance_tables (n, x, dis_tables);
 
 #pragma omp parallel for
-        for (size_t i = 0; i < n; i++) {
+        for (ptrdiff_t i = 0; i < n; i++) {
             uint8_t * code = codes + i * code_size;
             const float * tab = dis_tables + i * ksub * M;
             compute_code_from_distance_table (tab, code);
@@ -445,7 +445,7 @@ void ProductQuantizer::compute_distance_tables (
     if (dsub < 16) {
 
 #pragma omp parallel for
-        for (size_t i = 0; i < nx; i++) {
+        for (ptrdiff_t i = 0; i < nx; i++) {
             compute_distance_table (x + i * d, dis_tables + i * ksub * M);
         }
 
@@ -470,7 +470,7 @@ void ProductQuantizer::compute_inner_prod_tables (
     if (dsub < 16) {
 
 #pragma omp parallel for
-        for (size_t i = 0; i < nx; i++) {
+        for (ptrdiff_t i = 0; i < nx; i++) {
             compute_inner_prod_table (x + i * d, dis_tables + i * ksub * M);
         }
 
@@ -506,7 +506,7 @@ static void pq_knn_search_with_tables (
 
 
 #pragma omp parallel for
-    for (size_t i = 0; i < nx; i++) {
+    for (ptrdiff_t i = 0; i < nx; i++) {
         /* query preparation for asymmetric search: compute look-up tables */
         const float* dis_table = dis_tables + i * ksub * M;
 
@@ -628,7 +628,7 @@ void ProductQuantizer::search_sdc (const uint8_t * qcodes,
 
 
 #pragma omp parallel for
-    for (size_t i = 0; i < nq; i++) {
+    for (ptrdiff_t i = 0; i < nq; i++) {
 
         /* Compute distances and keep smallest values */
 		int64_t * heap_ids = res->ids + i * k;

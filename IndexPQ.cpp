@@ -445,7 +445,7 @@ void IndexPQ::hamming_distance_histogram (idx_t n, const float *x,
         hamdis_t *distances = new hamdis_t [nb * bs];
         ScopeDeleter<hamdis_t> del (distances);
 #pragma omp for
-        for (size_t q0 = 0; q0 < n; q0 += bs) {
+        for (ptrdiff_t q0 = 0; q0 < n; q0 += bs) {
             // printf ("dis stats: %ld/%ld\n", q0, n);
             size_t q1 = q0 + bs;
             if (q1 > n) q1 = n;
