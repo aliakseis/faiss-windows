@@ -173,7 +173,7 @@ void IndexIDMap2::reconstruct (idx_t key, float * recons) const
     try {
         index->reconstruct (rev_map.at (key), recons);
     } catch (const std::out_of_range& e) {
-        FAISS_THROW_FMT ("key %ld not found", key);
+        FAISS_THROW_FMT ("key %lld not found", key);
     }
 }
 
@@ -228,7 +228,7 @@ struct TrainJob {
     void run ()
     {
         if (index->verbose)
-            printf ("begin train shard %d on %ld points\n", no, n);
+            printf ("begin train shard %d on %lld points\n", no, n);
         index->shard_indexes [no]->train(n, x);
         if (index->verbose)
             printf ("end train shard %d\n", no);
@@ -247,13 +247,13 @@ struct AddJob {
     void run ()
     {
         if (index->verbose)
-            printf ("begin add shard %d on %ld points\n", no, n);
+            printf ("begin add shard %d on %lld points\n", no, n);
         if (ids)
             index->shard_indexes[no]->add_with_ids (n, x, ids);
         else
             index->shard_indexes[no]->add (n, x);
         if (index->verbose)
-            printf ("end add shard %d on %ld points\n", no, n);
+            printf ("end add shard %d on %lld points\n", no, n);
     }
 };
 
@@ -275,7 +275,7 @@ struct QueryJob {
     void run ()
     {
         if (index->verbose)
-            printf ("begin query shard %d on %ld points\n", no, n);
+            printf ("begin query shard %d on %lld points\n", no, n);
         index->shard_indexes [no]->search (n, x, k,
                                            distances, labels);
         if (index->verbose)
@@ -636,7 +636,7 @@ struct SplitQueryJob {
     void run ()
     {
         if (index->verbose)
-            printf ("begin query shard %d on %ld points\n", no, n);
+            printf ("begin query shard %d on %lld points\n", no, n);
         const Index * sub_index = index->sub_indexes[no];
         long sub_d = sub_index->d, d = index->d;
         idx_t ofs = 0;

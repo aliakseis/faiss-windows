@@ -68,7 +68,7 @@ void Level1Quantizer::train_q1 (size_t n, const float *x, bool verbose, MetricTy
                           "nlist not consistent with quantizer size");
     } else if (quantizer_trains_alone == 0) {
         if (verbose)
-            printf ("Training level-1 quantizer on %ld vectors in %ldD\n",
+            printf ("Training level-1 quantizer on %zd vectors in %zdD\n",
                     n, d);
 
         Clustering clus (d, nlist, cp);
@@ -83,7 +83,7 @@ void Level1Quantizer::train_q1 (size_t n, const float *x, bool verbose, MetricTy
     } else if (quantizer_trains_alone == 2) {
         if (verbose)
             printf (
-                "Training L2 quantizer on %ld vectors in %ldD%s\n",
+                "Training L2 quantizer on %zd vectors in %zdD%s\n",
                 n, d,
                 clustering_index ? "(user provided index)" : "");
         FAISS_THROW_IF_NOT (metric_type == METRIC_L2);

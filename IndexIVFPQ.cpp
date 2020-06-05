@@ -96,7 +96,7 @@ void IndexIVFPQ::train_residual_o (idx_t n, const float *x, float *residuals_2)
         trainset = x;
     }
     if (verbose)
-        printf ("training %zdx%zd product quantizer on %ld vectors in %dD\n",
+        printf ("training %zdx%zd product quantizer on %lld vectors in %dD\n",
                 pq.M, pq.ksub, n, d);
     pq.verbose = verbose;
     pq.train (n, trainset);
@@ -209,7 +209,7 @@ void IndexIVFPQ::add_core_o (idx_t n, const float * x, const int64_t *xids,
         for (idx_t i0 = 0; i0 < n; i0 += bs) {
             idx_t i1 = std::min(i0 + bs, n);
             if (verbose) {
-                printf("IndexIVFPQ::add_core_o: adding %ld:%ld / %ld\n",
+                printf("IndexIVFPQ::add_core_o: adding %lld:%lld / %lld\n",
                        i0, i1, n);
             }
             add_core_o (i1 - i0, x + i0 * d,
@@ -291,7 +291,7 @@ void IndexIVFPQ::add_core_o (idx_t n, const float * x, const int64_t *xids,
     if(verbose) {
         char comment[100] = {0};
         if (n_ignore > 0)
-            snprintf (comment, 100, "(%ld vectors ignored)", n_ignore);
+            snprintf (comment, 100, "(%zd vectors ignored)", n_ignore);
         printf(" add_core times: %.3f %.3f %.3f %s\n",
                t1 - t0, t2 - t1, t3 - t2, comment);
     }
@@ -1126,7 +1126,7 @@ void IndexIVFPQR::train_residual (idx_t n, const float *x)
     train_residual_o (n, x, residual_2);
 
     if (verbose)
-        printf ("training %zdx%zd 2nd level PQ quantizer on %ld %dD-vectors\n",
+        printf ("training %zdx%zd 2nd level PQ quantizer on %lld %dD-vectors\n",
                 refine_pq.M, refine_pq.ksub, n, d);
 
     refine_pq.cp.max_points_per_centroid = 1000;
@@ -1312,7 +1312,7 @@ Index2Layer::~Index2Layer ()
 void Index2Layer::train(idx_t n, const float* x)
 {
     if (verbose) {
-        printf ("training level-1 quantizer %ld vectors in %dD\n",
+        printf ("training level-1 quantizer %lld vectors in %dD\n",
                 n, d);
     }
 
@@ -1339,7 +1339,7 @@ void Index2Layer::train(idx_t n, const float* x)
     }
 
     if (verbose)
-        printf ("training %zdx%zd product quantizer on %ld vectors in %dD\n",
+        printf ("training %zdx%zd product quantizer on %lld vectors in %dD\n",
                 pq.M, pq.ksub, n, d);
     pq.verbose = verbose;
     pq.train (n, residuals.data());
@@ -1354,7 +1354,7 @@ void Index2Layer::add(idx_t n, const float* x)
         for (idx_t i0 = 0; i0 < n; i0 += bs) {
             idx_t i1 = std::min(i0 + bs, n);
             if (verbose) {
-                printf("Index2Layer::add: adding %ld:%ld / %ld\n",
+                printf("Index2Layer::add: adding %lld:%lld / %lld\n",
                        i0, i1, n);
             }
             add (i1 - i0, x + i0 * d);

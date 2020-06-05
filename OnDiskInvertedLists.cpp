@@ -325,11 +325,11 @@ void OnDiskInvertedLists::update_totsize (size_t new_size)
     totsize = new_size;
 
     // create file
-    printf ("resizing %s to %ld bytes\n", filename.c_str(), totsize);
+    printf ("resizing %s to %zd bytes\n", filename.c_str(), totsize);
 
     int err = truncate (filename.c_str(), totsize);
 
-    FAISS_THROW_IF_NOT_FMT (err == 0, "truncate %s to %ld: %s",
+    FAISS_THROW_IF_NOT_FMT (err == 0, "truncate %s to %zd: %s",
                             filename.c_str(), totsize,
                             strerror(errno));
     do_mmap ();

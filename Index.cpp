@@ -92,7 +92,7 @@ void Index::compute_residual (const float * x,
 
 
 void Index::display () const {
-  printf ("Index: %s  -> %ld elements\n", typeid (*this).name(), ntotal);
+  printf ("Index: %s  -> %lld elements\n", typeid (*this).name(), ntotal);
 }
 
 }

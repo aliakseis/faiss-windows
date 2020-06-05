@@ -77,7 +77,7 @@ void IndexIVFFlat::add_core (idx_t n, const float * x, const int64_t *xids,
         n_add++;
     }
     if (verbose) {
-        printf("IndexIVFFlat::add_core: added %ld / %ld vectors\n",
+        printf("IndexIVFFlat::add_core: added %ld / %lld vectors\n",
                n_add, n);
     }
     ntotal += n_add;
@@ -115,7 +115,7 @@ void search_knn_inner_product (const IndexIVFFlat & ivf,
             }
             FAISS_THROW_IF_NOT_FMT (
                 key < (long) ivf.nlist,
-                "Invalid key=%ld  at ik=%ld nlist=%ld\n",
+                "Invalid key=%lld  at ik=%zd nlist=%zd\n",
                 key, ik, ivf.nlist);
 
             nlistv++;
@@ -175,7 +175,7 @@ void search_knn_L2sqr (const IndexIVFFlat &ivf,
             }
             FAISS_THROW_IF_NOT_FMT (
                 key < (long) ivf.nlist,
-                "Invalid key=%ld  at ik=%ld nlist=%ld\n",
+                "Invalid key=%lld  at ik=%zd nlist=%zd\n",
                 key, ik, ivf.nlist);
 
             nlistv++;
@@ -249,7 +249,7 @@ void IndexIVFFlat::range_search (idx_t nx, const float *x, float radius,
             for (size_t ik = 0; ik < nprobe; ik++) {
                 int64_t key = keysi[ik];  /* select the list  */
                 if (key < 0 || key >= (long) nlist) {
-                    fprintf (stderr, "Invalid key=%ld  at ik=%ld nlist=%ld\n",
+                    fprintf (stderr, "Invalid key=%lld  at ik=%zd nlist=%zd\n",
                              key, ik, nlist);
                     throw;
                 }

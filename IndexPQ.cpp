@@ -62,7 +62,7 @@ void IndexPQ::train (idx_t n, const float *x)
         if (ntrain_perm > n / 4)
             ntrain_perm = n / 4;
         if (verbose) {
-            printf ("PQ training on %ld points, remains %ld points: "
+            printf ("PQ training on %lld points, remains %lld points: "
                     "training polysemous on %s\n",
                     n - ntrain_perm, ntrain_perm,
                     ntrain_perm == 0 ? "centroids" : "these");

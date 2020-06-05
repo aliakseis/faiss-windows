@@ -634,10 +634,10 @@ void HNSW::print_neighbor_stats(int level) const
         }
     }
     float normalizer = n_node;
-    printf("   nb of nodes at that level %ld\n", n_node);
-    printf("   neighbors per node: %.2f (%ld)\n", tot_neigh / normalizer, tot_neigh);
+    printf("   nb of nodes at that level %zd\n", n_node);
+    printf("   neighbors per node: %.2f (%zd)\n", tot_neigh / normalizer, tot_neigh);
     printf("   nb of reciprocal neighbors: %.2f\n", tot_reciprocal / normalizer);
-    printf("   nb of neighbors that are also neighbor-of-neighbors: %.2f (%ld)\n",
+    printf("   nb of neighbors that are also neighbor-of-neighbors: %.2f (%zd)\n",
            tot_common / normalizer, tot_common);
 
 
@@ -812,7 +812,7 @@ void hnsw_add_vertices(IndexHNSW &index_hnsw,
     size_t ntotal = n0 + n;
     double t0 = getmillisecs();
     if (verbose) {
-        printf("hnsw_add_vertices: adding %ld elements on top of %ld "
+        printf("hnsw_add_vertices: adding %zd elements on top of %zd "
                "(preset_levels=%d)\n",
                n, n0, int(preset_levels));
     }
@@ -925,7 +925,7 @@ void HNSW::fill_with_random_links(size_t n)
                 elts.push_back(i);
             }
         }
-        printf ("linking %ld elements in level %d\n",
+        printf ("linking %zd elements in level %d\n",
                 elts.size(), level);
 
         if (elts.size() == 1) continue;
@@ -1305,7 +1305,7 @@ void IndexHNSW::link_singletons()
         }
     }
 
-    printf("  Found %d / %ld singletons (%d appear in a level above)\n",
+    printf("  Found %d / %lld singletons (%d appear in a level above)\n",
            n_sing, ntotal, n_sing_l1);
 
     std::vector<float>recons(singletons.size() * d);

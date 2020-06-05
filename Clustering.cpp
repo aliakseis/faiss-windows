@@ -66,8 +66,8 @@ static double imbalance_factor (int n, int k, int64_t *assign) {
 
 void Clustering::train (idx_t nx, const float *x_in, Index & index) {
     FAISS_THROW_IF_NOT_FMT (nx >= k,
-             "Number of training points (%ld) should be at least "
-             "as large as number of clusters (%ld)", nx, k);
+             "Number of training points (%lld) should be at least "
+             "as large as number of clusters (%zd)", nx, k);
 
     double t0 = getmillisecs();
 
@@ -83,7 +83,7 @@ void Clustering::train (idx_t nx, const float *x_in, Index & index) {
 
     if (nx > k * max_points_per_centroid) {
         if (verbose)
-            printf("Sampling a subset of %ld / %ld for training\n",
+            printf("Sampling a subset of %zd / %lld for training\n",
                    k * max_points_per_centroid, nx);
         std::vector<int> perm (nx);
         rand_perm (perm.data (), nx, seed);
@@ -95,15 +95,15 @@ void Clustering::train (idx_t nx, const float *x_in, Index & index) {
         del1.set (x);
     } else if (nx < k * min_points_per_centroid) {
         fprintf (stderr,
-                 "WARNING clustering %ld points to %ld centroids: "
-                 "please provide at least %ld training points\n",
+                 "WARNING clustering %lld points to %zd centroids: "
+                 "please provide at least %lld training points\n",
                  nx, k, idx_t(k) * min_points_per_centroid);
     }
 
 
     if (nx == k) {
         if (verbose) {
-            printf("Number of training points (%ld) same as number of "
+            printf("Number of training points (%lld) same as number of "
                    "clusters, just copying\n", nx);
         }
         // this is a corner case, just copy training set to clusters
@@ -116,7 +116,7 @@ void Clustering::train (idx_t nx, const float *x_in, Index & index) {
 
 
     if (verbose)
-        printf("Clustering %d points in %ldD to %ld clusters, "
+        printf("Clustering %d points in %zdD to %zd clusters, "
                "redo %d times, %d iterations\n",
                int(nx), d, k, nredo, niter);
 
