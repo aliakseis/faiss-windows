@@ -77,7 +77,7 @@ template <typename T, int Dim, bool InnerContig,
           typename IndexT, template <typename U> class PtrTraits>
 __host__ __device__
 Tensor<T, Dim, InnerContig, IndexT, PtrTraits>::
-Tensor(DataPtrType data, const IndexT sizes[Dim])
+Tensor(DataPtrType data, const IndexT (&sizes)[Dim])
     : data_(data) {
   static_assert(Dim > 0, "must have > 0 dimensions");
 
@@ -116,7 +116,7 @@ template <typename T, int Dim, bool InnerContig,
           typename IndexT, template <typename U> class PtrTraits>
 __host__ __device__
 Tensor<T, Dim, InnerContig, IndexT, PtrTraits>::Tensor(
-  DataPtrType data, const IndexT sizes[Dim], const IndexT strides[Dim])
+  DataPtrType data, const IndexT (&sizes)[Dim], const IndexT (&strides)[Dim])
     : data_(data) {
   static_assert(Dim > 0, "must have > 0 dimensions");
 

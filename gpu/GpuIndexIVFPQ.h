@@ -105,7 +105,7 @@ class GpuIndexIVFPQ : public GpuIndexIVF {
 
   /// For debugging purposes, return the list indices of a particular
   /// list
-  std::vector<long> getListIndices(int listId) const;
+  std::vector<int64_t> getListIndices(int listId) const;
 
  protected:
   /// Called from GpuIndex for add/add_with_ids

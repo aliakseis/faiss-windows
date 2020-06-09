@@ -41,7 +41,7 @@ class DeviceTensor : public Tensor<T, Dim, InnerContig, IndexT, PtrTraits> {
 
   /// Constructs a tensor of the given size, allocating memory for it
   /// locally
-  __host__ DeviceTensor(const IndexT sizes[Dim],
+  __host__ DeviceTensor(const IndexT (&sizes)[Dim],
                         MemorySpace space = MemorySpace::Device);
   __host__ DeviceTensor(std::initializer_list<IndexT> sizes,
                         MemorySpace space = MemorySpace::Device);
@@ -51,7 +51,7 @@ class DeviceTensor : public Tensor<T, Dim, InnerContig, IndexT, PtrTraits> {
   /// The memory reservation should be ordered with respect to the
   /// given stream.
   __host__ DeviceTensor(DeviceMemory& m,
-                        const IndexT sizes[Dim],
+                        const IndexT (&sizes)[Dim],
                         cudaStream_t stream,
                         MemorySpace space = MemorySpace::Device);
   __host__ DeviceTensor(DeviceMemory& m,
@@ -62,7 +62,7 @@ class DeviceTensor : public Tensor<T, Dim, InnerContig, IndexT, PtrTraits> {
   /// Constructs a tensor of the given size and stride, referencing a
   /// memory region we do not own
   __host__ DeviceTensor(DataPtrType data,
-                        const IndexT sizes[Dim],
+                        const IndexT (&sizes)[Dim],
                         MemorySpace space = MemorySpace::Device);
   __host__ DeviceTensor(DataPtrType data,
                         std::initializer_list<IndexT> sizes,
@@ -71,8 +71,8 @@ class DeviceTensor : public Tensor<T, Dim, InnerContig, IndexT, PtrTraits> {
   /// Constructs a tensor of the given size and stride, referencing a
   /// memory region we do not own
   __host__ DeviceTensor(DataPtrType data,
-                        const IndexT sizes[Dim],
-                        const IndexT strides[Dim],
+                        const IndexT (&sizes)[Dim],
+                        const IndexT (&strides)[Dim],
                         MemorySpace space = MemorySpace::Device);
 
   /// Copies a tensor into ourselves, allocating memory for it locally

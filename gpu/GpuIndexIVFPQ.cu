@@ -407,7 +407,7 @@ GpuIndexIVFPQ::getListCodes(int listId) const {
   return index_->getListCodes(listId);
 }
 
-std::vector<long>
+std::vector<int64_t>
 GpuIndexIVFPQ::getListIndices(int listId) const {
   FAISS_ASSERT(index_);
   DeviceScope scope(device_);

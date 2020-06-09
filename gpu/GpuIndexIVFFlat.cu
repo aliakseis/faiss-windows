@@ -217,11 +217,11 @@ GpuIndexIVFFlat::addImpl_(Index::idx_t n,
                        stream,
                        {(int) n, index_->getDim()});
 
-  static_assert(sizeof(long) == sizeof(Index::idx_t), "size mismatch");
+  static_assert(sizeof(int64_t) == sizeof(Index::idx_t), "size mismatch");
   auto deviceIds =
-    toDevice<long, 1>(resources_,
+    toDevice<int64_t, 1>(resources_,
                       device_,
-                      const_cast<long*>(xids),
+                      const_cast<int64_t*>(xids),
                       stream,
                       {(int) n});
 

@@ -32,21 +32,21 @@ class HostTensor : public Tensor<T, Dim, InnerContig, IndexT, PtrTraits> {
 
   /// Constructs a tensor of the given size, allocating memory for it
   /// locally
-  __host__ HostTensor(const IndexT sizes[Dim]);
+  __host__ HostTensor(const IndexT (&sizes)[Dim]);
   __host__ HostTensor(std::initializer_list<IndexT> sizes);
 
   /// Constructs a tensor of the given size and stride, referencing a
   /// memory region we do not own
   __host__ HostTensor(DataPtrType data,
-                      const IndexT sizes[Dim]);
+                      const IndexT (&sizes)[Dim]);
   __host__ HostTensor(DataPtrType data,
                       std::initializer_list<IndexT> sizes);
 
   /// Constructs a tensor of the given size and stride, referencing a
   /// memory region we do not own
   __host__ HostTensor(DataPtrType data,
-                      const IndexT sizes[Dim],
-                      const IndexT strides[Dim]);
+                      const IndexT (&sizes)[Dim],
+                      const IndexT (&strides)[Dim]);
 
   /// Copies a tensor into ourselves, allocating memory for it
   /// locally. If the tensor is on the GPU, then we will copy it to

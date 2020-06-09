@@ -102,7 +102,7 @@ class Tensor {
 
   /// Constructor that calculates strides with no padding
   __host__ __device__ Tensor(DataPtrType data,
-                             const IndexT sizes[Dim]);
+                             const IndexT (&sizes)[Dim]);
   __host__ __device__ Tensor(DataPtrType data,
                              std::initializer_list<IndexT> sizes);
 
@@ -110,8 +110,8 @@ class Tensor {
   /// Errors if you attempt to pass non-contiguous strides to a
   /// contiguous tensor.
   __host__ __device__ Tensor(DataPtrType data,
-                             const IndexT sizes[Dim],
-                             const IndexT strides[Dim]);
+                             const IndexT (&sizes)[Dim],
+                             const IndexT (&strides)[Dim]);
 
   /// Copies a tensor into ourselves; sizes must match
   __host__ void copyFrom(Tensor<T, Dim, InnerContig, IndexT, PtrTraits>& t,

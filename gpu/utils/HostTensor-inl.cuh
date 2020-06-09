@@ -33,7 +33,7 @@ template <typename T, int Dim, bool InnerContig,
           typename IndexT, template <typename U> class PtrTraits>
 __host__
 HostTensor<T, Dim, InnerContig, IndexT, PtrTraits>::HostTensor(
-  const IndexT sizes[Dim]) :
+  const IndexT (&sizes)[Dim]) :
     Tensor<T, Dim, InnerContig, IndexT, PtrTraits>(nullptr, sizes),
     state_(AllocState::Owner) {
 
@@ -57,7 +57,7 @@ template <typename T, int Dim, bool InnerContig,
 __host__
 HostTensor<T, Dim, InnerContig, IndexT, PtrTraits>::HostTensor(
   DataPtrType data,
-  const IndexT sizes[Dim]) :
+  const IndexT (&sizes)[Dim]) :
     Tensor<T, Dim, InnerContig, IndexT, PtrTraits>(data, sizes),
     state_(AllocState::NotOwner) {
 }
@@ -77,8 +77,8 @@ template <typename T, int Dim, bool InnerContig,
 __host__
 HostTensor<T, Dim, InnerContig, IndexT, PtrTraits>::HostTensor(
   DataPtrType data,
-  const IndexT sizes[Dim],
-  const IndexT strides[Dim]) :
+  const IndexT (&sizes)[Dim],
+  const IndexT (&strides)[Dim]) :
     Tensor<T, Dim, InnerContig, IndexT, PtrTraits>(data, sizes, strides),
     state_(AllocState::NotOwner) {
 }

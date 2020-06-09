@@ -57,7 +57,7 @@ class IVFBase {
   int getListLength(int listId) const;
 
   /// Return the list indices of a particular list back to the CPU
-  std::vector<long> getListIndices(int listId) const;
+  std::vector<int64_t> getListIndices(int listId) const;
 
  protected:
   /// Reclaim memory consumed on the device for our inverted lists

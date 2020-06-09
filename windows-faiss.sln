@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_swigfaiss", "python\_swigf
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_swigfaiss_gpu", "python\_swigfaiss_gpu\_swigfaiss_gpu.vcxproj", "{10E287C7-F389-4486-B1F8-01EAFED0D336}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "faiss-gpu", "gpu\faiss-gpu.vcxproj", "{9CE77D72-77F7-4932-AD52-73C76FE8A864}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -63,6 +65,12 @@ Global
 		{10E287C7-F389-4486-B1F8-01EAFED0D336}.Release|x64.Build.0 = Release|x64
 		{10E287C7-F389-4486-B1F8-01EAFED0D336}.Release|x86.ActiveCfg = Release|Win32
 		{10E287C7-F389-4486-B1F8-01EAFED0D336}.Release|x86.Build.0 = Release|Win32
+		{9CE77D72-77F7-4932-AD52-73C76FE8A864}.Debug|x64.ActiveCfg = Debug|x64
+		{9CE77D72-77F7-4932-AD52-73C76FE8A864}.Debug|x64.Build.0 = Debug|x64
+		{9CE77D72-77F7-4932-AD52-73C76FE8A864}.Debug|x86.ActiveCfg = Debug|x64
+		{9CE77D72-77F7-4932-AD52-73C76FE8A864}.Release|x64.ActiveCfg = Release|x64
+		{9CE77D72-77F7-4932-AD52-73C76FE8A864}.Release|x64.Build.0 = Release|x64
+		{9CE77D72-77F7-4932-AD52-73C76FE8A864}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

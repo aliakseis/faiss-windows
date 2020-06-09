@@ -14,6 +14,8 @@
 #include "utils/DeviceUtils.h"
 #include <stdio.h>
 
+#include <algorithm>
+
 namespace faiss { namespace gpu {
 
 // Default size for which we page add or search

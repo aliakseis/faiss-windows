@@ -56348,7 +56348,7 @@ SWIGINTERN PyObject *_wrap_GpuIndexIVFPQ_getListIndices(PyObject *SWIGUNUSEDPARM
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  std::vector< long > result;
+  std::vector< int64_t > result;
   
   if (!PyArg_ParseTuple(args,(char *)"OO:GpuIndexIVFPQ_getListIndices",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_faiss__gpu__GpuIndexIVFPQ, 0 |  0 );
@@ -56372,7 +56372,7 @@ SWIGINTERN PyObject *_wrap_GpuIndexIVFPQ_getListIndices(PyObject *SWIGUNUSEDPARM
     }
     Py_END_ALLOW_THREADS
   }
-  resultobj = SWIG_NewPointerObj((new std::vector< long >(static_cast< const std::vector< long >& >(result))), SWIGTYPE_p_std__vectorT_long_t, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_NewPointerObj((new std::vector< int64_t >(static_cast< const std::vector< int64_t >& >(result))), SWIGTYPE_p_std__vectorT_long_t, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;

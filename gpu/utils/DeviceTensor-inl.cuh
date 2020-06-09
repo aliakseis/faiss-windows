@@ -70,7 +70,7 @@ template <typename T, int Dim, bool InnerContig,
           typename IndexT, template <typename U> class PtrTraits>
 __host__
 DeviceTensor<T, Dim, InnerContig, IndexT, PtrTraits>::DeviceTensor(
-  const IndexT sizes[Dim],
+  const IndexT (&sizes)[Dim],
   MemorySpace space) :
     Tensor<T, Dim, InnerContig, IndexT, PtrTraits>(nullptr, sizes),
     state_(AllocState::Owner),
@@ -100,7 +100,7 @@ template <typename T, int Dim, bool InnerContig,
 __host__
 DeviceTensor<T, Dim, InnerContig, IndexT, PtrTraits>::DeviceTensor(
   DeviceMemory& m,
-  const IndexT sizes[Dim],
+  const IndexT (&sizes)[Dim],
   cudaStream_t stream,
   MemorySpace space) :
     Tensor<T, Dim, InnerContig, IndexT, PtrTraits>(nullptr, sizes),
@@ -141,7 +141,7 @@ template <typename T, int Dim, bool InnerContig,
 __host__
 DeviceTensor<T, Dim, InnerContig, IndexT, PtrTraits>::DeviceTensor(
   DataPtrType data,
-  const IndexT sizes[Dim],
+  const IndexT (&sizes)[Dim],
   MemorySpace space) :
     Tensor<T, Dim, InnerContig, IndexT, PtrTraits>(data, sizes),
     state_(AllocState::NotOwner),
@@ -165,8 +165,8 @@ template <typename T, int Dim, bool InnerContig,
 __host__
 DeviceTensor<T, Dim, InnerContig, IndexT, PtrTraits>::DeviceTensor(
   DataPtrType data,
-  const IndexT sizes[Dim],
-  const IndexT strides[Dim],
+  const IndexT (&sizes)[Dim],
+  const IndexT (&strides)[Dim],
   MemorySpace space) :
     Tensor<T, Dim, InnerContig, IndexT, PtrTraits>(data, sizes, strides),
     state_(AllocState::NotOwner),
