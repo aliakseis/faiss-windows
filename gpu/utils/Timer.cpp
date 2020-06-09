@@ -45,13 +45,15 @@ KernelTimer::elapsedMilliseconds() {
 }
 
 CpuTimer::CpuTimer() {
-  clock_gettime(CLOCK_REALTIME, &start_);
+  //clock_gettime(CLOCK_REALTIME, &start_);
+    timespec_get(&start_, TIME_UTC);
 }
 
 float
 CpuTimer::elapsedMilliseconds() {
   struct timespec end;
-  clock_gettime(CLOCK_REALTIME, &end);
+  //clock_gettime(CLOCK_REALTIME, &end);
+  timespec_get(&end, TIME_UTC);
 
   auto diffS = end.tv_sec - start_.tv_sec;
   auto diffNs = end.tv_nsec - start_.tv_nsec;

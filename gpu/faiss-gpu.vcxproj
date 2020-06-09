@@ -16,6 +16,12 @@
     <ClCompile Include="GpuResources.cpp" />
     <ClCompile Include="IndexProxy.cpp" />
     <ClCompile Include="StandardGpuResources.cpp" />
+    <ClCompile Include="utils\DeviceMemory.cpp" />
+    <ClCompile Include="utils\DeviceUtils.cpp" />
+    <ClCompile Include="utils\MemorySpace.cpp" />
+    <ClCompile Include="utils\StackDeviceMemory.cpp" />
+    <ClCompile Include="utils\Timer.cpp" />
+    <ClCompile Include="utils\WorkerThread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GpuAutoTune.h" />
@@ -30,6 +36,43 @@
     <ClInclude Include="GpuResources.h" />
     <ClInclude Include="IndexProxy.h" />
     <ClInclude Include="StandardGpuResources.h" />
+    <ClInclude Include="utils\BlockSelectKernel.cuh" />
+    <ClInclude Include="utils\Comparators.cuh" />
+    <ClInclude Include="utils\ConversionOperators.cuh" />
+    <ClInclude Include="utils\CopyUtils.cuh" />
+    <ClInclude Include="utils\DeviceDefs.cuh" />
+    <ClInclude Include="utils\DeviceMemory.h" />
+    <ClInclude Include="utils\DeviceTensor-inl.cuh" />
+    <ClInclude Include="utils\DeviceTensor.cuh" />
+    <ClInclude Include="utils\DeviceUtils.h" />
+    <ClInclude Include="utils\DeviceVector.cuh" />
+    <ClInclude Include="utils\Float16.cuh" />
+    <ClInclude Include="utils\HostTensor-inl.cuh" />
+    <ClInclude Include="utils\HostTensor.cuh" />
+    <ClInclude Include="utils\Limits.cuh" />
+    <ClInclude Include="utils\LoadStoreOperators.cuh" />
+    <ClInclude Include="utils\MathOperators.cuh" />
+    <ClInclude Include="utils\MatrixMult.cuh" />
+    <ClInclude Include="utils\MemorySpace.h" />
+    <ClInclude Include="utils\MergeNetworkBlock.cuh" />
+    <ClInclude Include="utils\MergeNetworkUtils.cuh" />
+    <ClInclude Include="utils\MergeNetworkWarp.cuh" />
+    <ClInclude Include="utils\NoTypeTensor.cuh" />
+    <ClInclude Include="utils\Pair.cuh" />
+    <ClInclude Include="utils\PtxUtils.cuh" />
+    <ClInclude Include="utils\ReductionOperators.cuh" />
+    <ClInclude Include="utils\Reductions.cuh" />
+    <ClInclude Include="utils\Select.cuh" />
+    <ClInclude Include="utils\StackDeviceMemory.h" />
+    <ClInclude Include="utils\StaticUtils.h" />
+    <ClInclude Include="utils\Tensor-inl.cuh" />
+    <ClInclude Include="utils\Tensor.cuh" />
+    <ClInclude Include="utils\ThrustAllocator.cuh" />
+    <ClInclude Include="utils\Timer.h" />
+    <ClInclude Include="utils\Transpose.cuh" />
+    <ClInclude Include="utils\WarpSelectKernel.cuh" />
+    <ClInclude Include="utils\WarpShuffles.cuh" />
+    <ClInclude Include="utils\WorkerThread.h" />
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="GpuIndex.cu" />
@@ -37,6 +80,12 @@
     <CudaCompile Include="GpuIndexIVF.cu" />
     <CudaCompile Include="GpuIndexIVFFlat.cu" />
     <CudaCompile Include="GpuIndexIVFPQ.cu" />
+    <CudaCompile Include="utils\BlockSelectFloat.cu" />
+    <CudaCompile Include="utils\BlockSelectHalf.cu" />
+    <CudaCompile Include="utils\Float16.cu" />
+    <CudaCompile Include="utils\MatrixMult.cu" />
+    <CudaCompile Include="utils\WarpSelectFloat.cu" />
+    <CudaCompile Include="utils\WarpSelectHalf.cu" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9CE77D72-77F7-4932-AD52-73C76FE8A864}</ProjectGuid>

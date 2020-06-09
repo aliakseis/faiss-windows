@@ -242,12 +242,12 @@ class Tensor {
   }
 
   /// Returns the size array.
-  __host__ __device__ inline const IndexT* sizes() const {
+  __host__ __device__ inline const IndexT(&sizes() const)[Dim] {
     return size_;
   }
 
   /// Returns the stride array.
-  __host__ __device__ inline const IndexT* strides() const {
+  __host__ __device__ inline const IndexT(&strides() const)[Dim] {
     return stride_;
   }
 
