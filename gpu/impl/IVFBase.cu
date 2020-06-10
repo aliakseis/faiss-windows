@@ -87,7 +87,7 @@ IVFBase::reset() {
     deviceListIndices_.emplace_back(
       std::unique_ptr<DeviceVector<unsigned char>>(
         new DeviceVector<unsigned char>(space_)));
-    listOffsetToUserIndex_.emplace_back(std::vector<long>());
+    listOffsetToUserIndex_.emplace_back(std::vector<int64_t>());
   }
 
   deviceListDataPointers_.resize(numLists_, nullptr);
