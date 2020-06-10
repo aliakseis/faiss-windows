@@ -25,6 +25,8 @@
 #include <thrust/device_ptr.h>
 #include <thrust/execution_policy.h>
 
+#include <algorithm>
+
 namespace faiss { namespace gpu {
 
 namespace {

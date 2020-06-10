@@ -21,6 +21,8 @@
 #include "../utils/StaticUtils.h"
 #include <limits>
 
+#include <algorithm>
+
 namespace faiss { namespace gpu {
 
 // For precomputed codes, this calculates and loads code distances

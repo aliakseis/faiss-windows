@@ -23,6 +23,8 @@
 #include "../utils/StaticUtils.h"
 #include <thrust/host_vector.h>
 
+#include <algorithm>
+
 namespace faiss { namespace gpu {
 
 template <typename T>

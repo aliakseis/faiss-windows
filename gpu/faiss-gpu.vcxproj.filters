@@ -24,6 +24,57 @@
     <CudaCompile Include="utils\WarpSelectHalf.cu">
       <Filter>utils</Filter>
     </CudaCompile>
+    <CudaCompile Include="impl\BroadcastSum.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\Distance.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\FlatIndex.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\InvertedListAppend.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\IVFBase.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\IVFFlat.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\IVFFlatScan.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\IVFPQ.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\IVFUtils.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\IVFUtilsSelect1.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\IVFUtilsSelect2.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\L2Norm.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\L2Select.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\PQCodeDistances.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\PQScanMultiPassNoPrecomputed.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\PQScanMultiPassPrecomputed.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
+    <CudaCompile Include="impl\VectorResidual.cu">
+      <Filter>impl</Filter>
+    </CudaCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GpuAutoTune.cpp" />
@@ -48,6 +99,9 @@
     </ClCompile>
     <ClCompile Include="utils\WorkerThread.cpp">
       <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="impl\RemapIndices.cpp">
+      <Filter>impl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -174,10 +228,64 @@
     <ClInclude Include="utils\WorkerThread.h">
       <Filter>utils</Filter>
     </ClInclude>
+    <ClInclude Include="impl\BroadcastSum.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\Distance.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\FlatIndex.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\InvertedListAppend.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\IVFBase.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\IVFFlat.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\IVFFlatScan.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\IVFPQ.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\IVFUtils.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\L2Norm.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\L2Select.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\PQCodeDistances.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\PQCodeLoad.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\PQScanMultiPassNoPrecomputed.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\PQScanMultiPassPrecomputed.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\RemapIndices.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\VectorResidual.cuh">
+      <Filter>impl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="utils">
       <UniqueIdentifier>{adfce051-503d-42c8-a2fc-40a97bac1b4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="impl">
+      <UniqueIdentifier>{7cd1de0b-b0ec-4205-8215-0af530fc4627}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -74,7 +74,7 @@ class IVFBase {
 
   /// Shared function to copy indices from CPU to GPU
   void addIndicesFromCpu_(int listId,
-                          const long* indices,
+                          const int64_t* indices,
                           size_t numVecs);
 
  protected:
@@ -124,7 +124,7 @@ class IVFBase {
   /// If we are storing indices on the CPU (indicesOptions_ is
   /// INDICES_CPU), then this maintains a CPU-side map of what
   /// (inverted list id, offset) maps to which user index
-  std::vector<std::vector<long>> listOffsetToUserIndex_;
+  std::vector<std::vector<int64_t>> listOffsetToUserIndex_;
 };
 
 } } // namespace

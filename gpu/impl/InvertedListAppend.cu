@@ -15,6 +15,8 @@
 #include "../utils/Tensor.cuh"
 #include "../utils/StaticUtils.h"
 
+#include <algorithm>
+
 namespace faiss { namespace gpu {
 
 __global__ void

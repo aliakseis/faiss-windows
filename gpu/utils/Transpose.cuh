@@ -17,6 +17,8 @@
 
 #include <stdio.h>
 
+#include <algorithm>
+
 namespace faiss { namespace gpu {
 
 template <typename T, typename IndexT>

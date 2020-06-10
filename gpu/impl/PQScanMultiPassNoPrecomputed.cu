@@ -23,6 +23,8 @@
 
 #include "../utils/HostTensor.cuh"
 
+#include <algorithm>
+
 namespace faiss { namespace gpu {
 
 // This must be kept in sync with PQCodeDistances.cu

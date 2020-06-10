@@ -53,7 +53,7 @@ IVFFlat::~IVFFlat() {
 void
 IVFFlat::addCodeVectorsFromCpu(int listId,
                                const float* vecs,
-                               const long* indices,
+                               const int64_t* indices,
                                size_t numVecs) {
   // This list must already exist
   FAISS_ASSERT(listId < deviceListData_.size());
@@ -127,7 +127,7 @@ IVFFlat::addCodeVectorsFromCpu(int listId,
 
 int
 IVFFlat::classifyAndAddVectors(Tensor<float, 2, true>& vecs,
-                               Tensor<long, 1, true>& indices) {
+                               Tensor<int64_t, 1, true>& indices) {
   FAISS_ASSERT(vecs.getSize(0) == indices.getSize(0));
   FAISS_ASSERT(vecs.getSize(1) == dim_);
 
@@ -244,7 +244,7 @@ IVFFlat::classifyAndAddVectors(Tensor<float, 2, true>& vecs,
   // map. We already resized our map above.
   if (indicesOptions_ == INDICES_CPU) {
     // We need to maintain the indices on the CPU side
-    HostTensor<long, 1, true> hostIndices(indices, stream);
+    HostTensor<int64_t, 1, true> hostIndices(indices, stream);
 
     for (int i = 0; i < hostIndices.getSize(0); ++i) {
       int listId = listIdsHost[i];
@@ -288,7 +288,7 @@ IVFFlat::query(Tensor<float, 2, true>& queries,
                int nprobe,
                int k,
                Tensor<float, 2, true>& outDistances,
-               Tensor<long, 2, true>& outIndices) {
+               Tensor<int64_t, 2, true>& outIndices) {
   auto& mem = resources_->getMemoryManagerCurrentDevice();
   auto stream = resources_->getDefaultStreamCurrentDevice();
 
@@ -335,7 +335,7 @@ IVFFlat::query(Tensor<float, 2, true>& queries,
   // FIXME: we might ultimately be calling this function with inputs
   // from the CPU, these are unnecessary copies
   if (indicesOptions_ == INDICES_CPU) {
-    HostTensor<long, 2, true> hostOutIndices(outIndices, stream);
+    HostTensor<int64_t, 2, true> hostOutIndices(outIndices, stream);
 
     ivfOffsetToUserIndex(hostOutIndices.data(),
                          numLists_,

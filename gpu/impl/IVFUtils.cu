@@ -16,6 +16,8 @@
 #include <thrust/scan.h>
 #include <thrust/execution_policy.h>
 
+#include <algorithm>
+
 namespace faiss { namespace gpu {
 
 // Calculates the total number of intermediate distances to consider
