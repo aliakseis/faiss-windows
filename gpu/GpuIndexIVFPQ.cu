@@ -276,7 +276,7 @@ GpuIndexIVFPQ::trainResidualQuantizer_(Index::idx_t n, const float* x) {
   }
 
   if (this->verbose) {
-    printf("training %d x %d product quantizer on %ld vectors in %dD\n",
+    printf("training %d x %d product quantizer on %lld vectors in %dD\n",
            subQuantizers_, getCentroidsPerSubQuantizer(), n, this->d);
   }
 

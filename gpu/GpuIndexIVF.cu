@@ -237,7 +237,7 @@ GpuIndexIVF::trainQuantizer_(faiss::Index::idx_t n, const float* x) {
   }
 
   if (this->verbose) {
-    printf ("Training IVF quantizer on %ld vectors in %dD\n", n, d);
+    printf ("Training IVF quantizer on %lld vectors in %dD\n", n, d);
   }
 
   DeviceScope scope(device_);

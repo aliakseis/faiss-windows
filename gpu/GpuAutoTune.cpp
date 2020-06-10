@@ -138,7 +138,7 @@ struct ToGpuCloner: faiss::Cloner, GpuClonerOptions {
           return res;
         } else if(auto ipq = dynamic_cast<const faiss::IndexIVFPQ *>(index)) {
             if(verbose)
-                printf("  IndexIVFPQ size %ld -> GpuIndexIVFPQ "
+                printf("  IndexIVFPQ size %lld -> GpuIndexIVFPQ "
                        "indicesOptions=%d "
                        "usePrecomputed=%d useFloat16=%d reserveVecs=%ld\n",
                        ipq->ntotal, indicesOptions, usePrecomputed,
