@@ -243,7 +243,7 @@ runMultiPassTile(Tensor<float, 2, true>& queries,
                  Tensor<int, 3, true>& heapIndices,
                  int k,
                  Tensor<float, 2, true>& outDistances,
-                 Tensor<long, 2, true>& outIndices,
+                 Tensor<int64_t, 2, true>& outIndices,
                  cudaStream_t stream) {
 #ifndef FAISS_USE_FLOAT16
   FAISS_ASSERT(!useFloat16Lookup);
@@ -419,7 +419,7 @@ void runPQScanMultiPassNoPrecomputed(Tensor<float, 2, true>& queries,
                                      // output
                                      Tensor<float, 2, true>& outDistances,
                                      // output
-                                     Tensor<long, 2, true>& outIndices,
+                                     Tensor<int64_t, 2, true>& outIndices,
                                      GpuResources* res) {
   constexpr int kMinQueryTileSize = 8;
   constexpr int kMaxQueryTileSize = 128;

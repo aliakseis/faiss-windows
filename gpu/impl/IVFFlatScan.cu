@@ -624,7 +624,7 @@ runIVFFlatScanTile(Tensor<float, 2, true>& queries,
                    bool l2Distance,
                    bool useFloat16,
                    Tensor<float, 2, true>& outDistances,
-                   Tensor<long, 2, true>& outIndices,
+                   Tensor<int64_t, 2, true>& outIndices,
                    cudaStream_t stream) {
   // Calculate offset lengths, so we know where to write out
   // intermediate results
@@ -754,7 +754,7 @@ runIVFFlatScan(Tensor<float, 2, true>& queries,
                // output
                Tensor<float, 2, true>& outDistances,
                // output
-               Tensor<long, 2, true>& outIndices,
+               Tensor<int64_t, 2, true>& outIndices,
                GpuResources* res) {
   constexpr int kMinQueryTileSize = 8;
   constexpr int kMaxQueryTileSize = 128;

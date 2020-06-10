@@ -75,6 +75,63 @@
     <CudaCompile Include="impl\VectorResidual.cu">
       <Filter>impl</Filter>
     </CudaCompile>
+    <CudaCompile Include="utils\nvidia\fp16_emu.cu">
+      <Filter>utils\nvidia</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectFloat1.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectFloat32.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectFloat64.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectFloat128.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectFloat256.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectFloatF512.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectFloatF1024.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectFloatT512.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectFloatT1024.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectHalf1.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectHalf32.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectHalf64.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectHalf128.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectHalf256.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectHalfF512.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectHalfF1024.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectHalfT512.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\blockselect\BlockSelectHalfT1024.cu">
+      <Filter>utils\blockselect</Filter>
+    </CudaCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GpuAutoTune.cpp" />
@@ -279,6 +336,12 @@
     <ClInclude Include="impl\VectorResidual.cuh">
       <Filter>impl</Filter>
     </ClInclude>
+    <ClInclude Include="utils\nvidia\fp16_emu.cuh">
+      <Filter>utils\nvidia</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\blockselect\BlockSelectImpl.cuh">
+      <Filter>utils\blockselect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="utils">
@@ -286,6 +349,12 @@
     </Filter>
     <Filter Include="impl">
       <UniqueIdentifier>{7cd1de0b-b0ec-4205-8215-0af530fc4627}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\nvidia">
+      <UniqueIdentifier>{ed7052ba-f671-49dc-8f4b-3afa70825baa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\blockselect">
+      <UniqueIdentifier>{aa8467a8-9a45-4cd5-a16a-1b1c6bfd52a3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

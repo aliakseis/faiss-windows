@@ -55,6 +55,7 @@
     <ClInclude Include="IndexProxy.h" />
     <ClInclude Include="StandardGpuResources.h" />
     <ClInclude Include="utils\BlockSelectKernel.cuh" />
+    <ClInclude Include="utils\blockselect\BlockSelectImpl.cuh" />
     <ClInclude Include="utils\Comparators.cuh" />
     <ClInclude Include="utils\ConversionOperators.cuh" />
     <ClInclude Include="utils\CopyUtils.cuh" />
@@ -76,6 +77,7 @@
     <ClInclude Include="utils\MergeNetworkUtils.cuh" />
     <ClInclude Include="utils\MergeNetworkWarp.cuh" />
     <ClInclude Include="utils\NoTypeTensor.cuh" />
+    <ClInclude Include="utils\nvidia\fp16_emu.cuh" />
     <ClInclude Include="utils\Pair.cuh" />
     <ClInclude Include="utils\PtxUtils.cuh" />
     <ClInclude Include="utils\ReductionOperators.cuh" />
@@ -117,8 +119,27 @@
     <CudaCompile Include="impl\VectorResidual.cu" />
     <CudaCompile Include="utils\BlockSelectFloat.cu" />
     <CudaCompile Include="utils\BlockSelectHalf.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectFloat1.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectFloat128.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectFloat256.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectFloat32.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectFloat64.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectFloatF1024.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectFloatF512.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectFloatT1024.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectFloatT512.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectHalf1.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectHalf128.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectHalf256.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectHalf32.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectHalf64.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectHalfF1024.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectHalfF512.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectHalfT1024.cu" />
+    <CudaCompile Include="utils\blockselect\BlockSelectHalfT512.cu" />
     <CudaCompile Include="utils\Float16.cu" />
     <CudaCompile Include="utils\MatrixMult.cu" />
+    <CudaCompile Include="utils\nvidia\fp16_emu.cu" />
     <CudaCompile Include="utils\WarpSelectFloat.cu" />
     <CudaCompile Include="utils\WarpSelectHalf.cu" />
   </ItemGroup>

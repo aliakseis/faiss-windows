@@ -21,7 +21,7 @@
 namespace faiss { namespace gpu {
 
 class GpuResources;
-struct FlatIndex;
+class FlatIndex;
 
 /// Base inverted list functionality for IVFFlat and IVFPQ
 class IVFBase {
