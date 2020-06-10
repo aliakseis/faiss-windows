@@ -31,6 +31,11 @@
   <ItemGroup>
     <Text Include="tests\readme.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="windows-faiss.vcxproj">
+      <Project>{95303da8-e1c9-475c-ae7f-aed7bc4981b7}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{70DC71C5-0CBC-46AD-8FAC-91D36F74954E}</ProjectGuid>
@@ -155,14 +160,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../;$(BOOST_DIR)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;$(BOOST_DIR)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>faiss.lib;mkl_intel_lp64_dll.lib;mkl_intel_thread_dll.lib;mkl_core_dll.lib;libiomp5md.lib;cublas.lib;cuda.lib;cudart.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cublas.lib;cuda.lib;cudart.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_DIR)\staticlib\x64\lib;$(SolutionDir)$(Platform)\$(Configuration)\;$(MKL_PATH);$(CUDA_PATH)\lib\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

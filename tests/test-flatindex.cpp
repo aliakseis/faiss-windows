@@ -1,8 +1,8 @@
 #include <boost/test/unit_test.hpp>
 #include "test-util.h"
 
-#include <faiss/IndexFlat.h>
-#include <faiss/utils.h>
+#include "IndexFlat.h"
+#include "utils.h"
 BOOST_AUTO_TEST_SUITE(FlatIndex)
 /**
 test the correctness of flat index using faiss flat index
@@ -59,7 +59,7 @@ BOOST_AUTO_TEST_CASE(FP32FlatIndexCPU) {
 	}
 }
 
-
+#if 0
 BOOST_AUTO_TEST_CASE(FP32FlatIndexGPU) {
 	int64_t nb = 1024;
 	int d = 64;
@@ -174,4 +174,5 @@ BOOST_AUTO_TEST_CASE(FP16FlatIndexGPU) {
 	}
 	BOOST_TEST_MESSAGE("GPU fp16 flat index search results is " << nNumOfInterSec*100.0f / (nq * k) << "% close to that of CPU fp32 flat index ");
 }
+#endif
 BOOST_AUTO_TEST_SUITE_END()

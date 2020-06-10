@@ -4,14 +4,14 @@
 class __declspec(dllexport) TestRunner {
 public:
 	void run(int, char**);
-	static boost::unit_test::test_suite* init(int, char**);
+	static bool init();
 };
 
 void TestRunner::run(int n, char** argc) {
 	boost::unit_test::unit_test_main(&TestRunner::init, n, argc);
 }
-boost::unit_test::test_suite* TestRunner::init(int, char**) {
-	return 0;
+bool TestRunner::init() {
+	return true;
 }
 int main(int argv, char** argc) {
 	TestRunner runner;

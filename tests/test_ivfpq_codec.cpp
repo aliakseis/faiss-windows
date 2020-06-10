@@ -11,9 +11,9 @@
 
 #include <boost/test/unit_test.hpp>
 #include "test-util.h"
-#include <faiss/IndexIVFPQ.h>
-#include <faiss/IndexFlat.h>
-#include <faiss/utils.h>
+#include "IndexIVFPQ.h"
+#include "IndexFlat.h"
+#include "utils.h"
 
 
 namespace {
