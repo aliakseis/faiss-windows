@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="GpuIndex.cu" />
+    <CudaCompile Include="GpuIndexFlat.cu" />
+    <CudaCompile Include="GpuIndexIVF.cu" />
+    <CudaCompile Include="GpuIndexIVFFlat.cu" />
+    <CudaCompile Include="GpuIndexIVFPQ.cu" />
+    <CudaCompile Include="utils\BlockSelectFloat.cu">
+      <Filter>utils</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\BlockSelectHalf.cu">
+      <Filter>utils</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\Float16.cu">
+      <Filter>utils</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\MatrixMult.cu">
+      <Filter>utils</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\WarpSelectFloat.cu">
+      <Filter>utils</Filter>
+    </CudaCompile>
+    <CudaCompile Include="utils\WarpSelectHalf.cu">
+      <Filter>utils</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GpuAutoTune.cpp" />
+    <ClCompile Include="GpuClonerOptions.cpp" />
+    <ClCompile Include="GpuResources.cpp" />
+    <ClCompile Include="IndexProxy.cpp" />
+    <ClCompile Include="StandardGpuResources.cpp" />
+    <ClCompile Include="utils\DeviceMemory.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\DeviceUtils.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\MemorySpace.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\StackDeviceMemory.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Timer.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\WorkerThread.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GpuAutoTune.h" />
+    <ClInclude Include="GpuClonerOptions.h" />
+    <ClInclude Include="GpuFaissAssert.h" />
+    <ClInclude Include="GpuIndex.h" />
+    <ClInclude Include="GpuIndexFlat.h" />
+    <ClInclude Include="GpuIndexIVF.h" />
+    <ClInclude Include="GpuIndexIVFFlat.h" />
+    <ClInclude Include="GpuIndexIVFPQ.h" />
+    <ClInclude Include="GpuIndicesOptions.h" />
+    <ClInclude Include="GpuResources.h" />
+    <ClInclude Include="IndexProxy.h" />
+    <ClInclude Include="StandardGpuResources.h" />
+    <ClInclude Include="utils\BlockSelectKernel.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Comparators.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\ConversionOperators.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\CopyUtils.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\DeviceDefs.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\DeviceMemory.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\DeviceTensor.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\DeviceTensor-inl.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\DeviceUtils.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\DeviceVector.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Float16.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\HostTensor.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\HostTensor-inl.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Limits.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\LoadStoreOperators.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\MathOperators.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\MatrixMult.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\MemorySpace.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\MergeNetworkBlock.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\MergeNetworkUtils.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\MergeNetworkWarp.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\NoTypeTensor.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Pair.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\PtxUtils.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\ReductionOperators.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Reductions.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Select.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\StackDeviceMemory.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\StaticUtils.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Tensor.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Tensor-inl.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\ThrustAllocator.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Timer.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Transpose.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\WarpSelectKernel.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\WarpShuffles.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\WorkerThread.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="utils">
+      <UniqueIdentifier>{adfce051-503d-42c8-a2fc-40a97bac1b4d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
