@@ -7,7 +7,7 @@
 
 /* declare BLAS functions, see http://www.netlib.org/clapack/cblas/ */
 
-void sgemm (const char *transa, const char *transb, int *m, int *
+int sgemm_ (const char *transa, const char *transb, int *m, int *
             n, int *k, const float *alpha, const float *a,
             int *lda, const float *b, int *
             ldb, float *beta, float *c, int *ldc);
@@ -62,15 +62,16 @@ void sgemm (const char *transa, const char *transb, int *m, int *
  
 	if (argc != 4){
 		 printf("Using defaults\n");
-		rowsA = 1024*1024; colsB = 1024; common = 512;
-	}
+		//rowsA = 1024*1024; colsB = 1024; common = 512;
+        rowsA = 512 * 512; colsB = 512; common = 256;
+    }
 	else{
 		 rowsA = atoi(argv[1]); colsB = atoi(argv[2]);common = atoi(argv[3]);
 	}
 	bool bColumnStorageFormat = false;
 
-	float* A=new float[rowsA * common]; float* B=new float[common * colsB];
-	float* C=new float[rowsA * colsB]; float* D=new float[rowsA * colsB];
+	float* A=new float[rowsA * common](); float* B=new float[common * colsB]();
+	float* C=new float[rowsA * colsB](); float* D=new float[rowsA * colsB]();
 	
 	char transA = 'N', transB = 'N';
 	float one = 1.0f, zero = 0.0f;
@@ -82,13 +83,13 @@ void sgemm (const char *transa, const char *transb, int *m, int *
 	Timer t;
 	t.start();
 	if(bColumnStorageFormat){
-		sgemm(&transA, &transB, &rowsA, &colsB, &common, &one, A, 
+		sgemm_(&transA, &transB, &rowsA, &colsB, &common, &one, A, 
 			   &rowsA, B, &common, &zero, C, &rowsA);
 	}
 	else {
 		int m=colsB, n=rowsA, k=common;
 		int ldb = colsB,lda=common,ldc=colsB;
-		sgemm(&transA, &transB, &m, &n, &k, &one, B, 
+		sgemm_(&transA, &transB, &m, &n, &k, &one, B, 
 			   &ldb, A, &lda, &zero, C, &ldc);
 	}
 	t.stop();
